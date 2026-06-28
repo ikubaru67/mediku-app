@@ -42,9 +42,23 @@ function addr(el: any): string {
 }
 
 function fetchOverpass(lat: number, lng: number, radius: number): Promise<Place[]> {
-  const query = `[out:json][timeout:25];(node["amenity"~"hospital|clinic|doctors|pharmacy"](around:${radius},${lat},${lng});way["amenity"~"hospital|clinic|doctors|pharmacy"](around:${radius},${lat},${lng}););out center;`
+  const cacheKey = `mediku_overpass_${lat.toFixed(2)}_${lng.toFixed(2)}_${radius}`
+  const cached = (() => {
+    try {
+      const raw = JSON.parse(localStorage.getItem(cacheKey) || 'null')
+      if (raw && Date.now() - raw.ts < 300000) return raw.data
+    } catch {}
+    return null
+  })()
+  if (cached) return Promise.resolve(cached)
+
+  const query = `[out:json][timeout:20];(node["amenity"~"hospital|clinic|doctors|pharmacy"](around:${radius},${lat},${lng});way["amenity"~"hospital|clinic|doctors|pharmacy"](around:${radius},${lat},${lng}););out center;`
   return fetch('https://overpass-api.de/api/interpreter', { method: 'POST', body: query })
-    .then(r => r.json())
+    .then(r => {
+      if (r.status === 429) throw new Error('rate-limit')
+      if (!r.ok) throw new Error('fetch-fail')
+      return r.json()
+    })
     .then(data => {
       const results: Place[] = []
       const seen = new Set<string>()
@@ -61,7 +75,9 @@ function fetchOverpass(lat: number, lng: number, radius: number): Promise<Place[
         })
       }
       results.sort((a, b) => haversine(lat, lng, a.lat, a.lng) - haversine(lat, lng, b.lat, b.lng))
-      return results.slice(0, 30)
+      const sliced = results.slice(0, 30)
+      try { localStorage.setItem(cacheKey, JSON.stringify({ data: sliced, ts: Date.now() })) } catch {}
+      return sliced
     })
 }
 
@@ -85,7 +101,7 @@ export default function MapsKlinikPage() {
     setGpsMsg('')
     fetchOverpass(lat, lng, radius)
       .then(results => {
-        if (results.length === 0 && radius < 20000) {
+        if (results.length === 0 && radius < 10000) {
           setSearchRadius(radius * 2)
           return doFetch(lat, lng, radius * 2)
         }
@@ -95,9 +111,13 @@ export default function MapsKlinikPage() {
         if (radius > 5000) setGpsMsg(`Radius pencarian diperbesar ke ${(radius / 1000).toFixed(0)} km`)
         else setGpsMsg('')
       })
-      .catch(() => {
+      .catch((err) => {
         setLoading('error')
-        setGpsMsg('Gagal mengambil data. Coba lagi.')
+        if (err.message === 'rate-limit') {
+          setGpsMsg('Server peta sibuk. Coba lagi dalam beberapa menit.')
+        } else {
+          setGpsMsg('Gagal mengambil data. Periksa koneksi internet.')
+        }
       })
   }, [])
 
@@ -253,8 +273,7 @@ export default function MapsKlinikPage() {
       {loading === 'error' && userPos && (
         <div className="absolute bottom-40 left-5 right-5 z-[1001]">
           <div className="bg-white/90 backdrop-blur-md rounded-3xl p-6 text-center shadow-lg">
-            <p className="text-[#BA1A1A] text-sm font-medium">Gagal mengambil data</p>
-            <p className="text-[#717786] text-xs mt-1">Periksa koneksi internet</p>
+            <p className="text-[#BA1A1A] text-sm font-medium">{gpsMsg}</p>
             <button onClick={handleRefresh} className="mt-4 bg-[#0079FF] text-white rounded-full px-6 py-2 text-sm font-semibold">Coba Lagi</button>
           </div>
         </div>
