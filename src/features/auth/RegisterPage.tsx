@@ -52,6 +52,7 @@ export default function RegisterPage() {
     setError('')
     try {
       const provider = new GoogleAuthProvider()
+      provider.setCustomParameters({ prompt: 'select_account' })
       await signInWithPopup(auth, provider)
       goHome(auth.currentUser?.displayName || 'Pengguna')
     } catch (err: any) {
