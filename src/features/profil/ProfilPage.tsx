@@ -37,7 +37,7 @@ export default function ProfilPage() {
             <div className="w-full h-full rounded-full p-[3px] bg-gradient-to-br from-[#0059BB] to-[#006D43]">
               <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">
                 {user?.photoURL ? (
-                  <img src={user.photoURL} alt="" className="w-full h-full object-cover" />
+                  <img src={user.photoURL} alt="Foto profil" className="w-full h-full object-cover" />
                 ) : (
                   <span className="text-[#0059BB] font-extrabold text-3xl">{initials}</span>
                 )}
@@ -50,7 +50,7 @@ export default function ProfilPage() {
           <h1 className="text-[#191C1E] text-2xl font-bold">{user?.displayName || 'Pengguna'}</h1>
           <p className="text-[#414754] text-base mt-1">{user?.email || '-'}</p>
           <button onClick={() => navigate('/profil/edit')}
-            className="mt-4 bg-[#0079FF] text-white text-sm font-semibold rounded-full px-6 py-3">
+            className="mt-4 bg-[#0079FF] text-white text-sm font-semibold rounded-full px-6 py-3 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             Edit Profile
           </button>
         </div>
@@ -76,7 +76,7 @@ export default function ProfilPage() {
               <div className="space-y-1">
                 {section.items.map((item) => (
                   <button key={item.id} onClick={() => item.path === '#' ? setComingSoon(item.label) : navigate(item.path)}
-                    className="w-full flex items-center gap-6 py-2.5">
+                    className="w-full flex items-center gap-6 py-2.5 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none rounded-lg">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
                       style={{ backgroundColor: section.color }}>
                       <Icon name={item.icon} size={18} className="shrink-0"
@@ -93,7 +93,7 @@ export default function ProfilPage() {
 
         <div className="mt-4">
           <button onClick={() => { signOut(auth); navigate('/login') }}
-            className="w-full flex items-center gap-6 py-3 px-4 rounded-[32px]"
+            className="w-full flex items-center gap-6 py-3 px-4 rounded-[32px] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none"
             style={{ backgroundColor: '#FFDAD6' }}>
             <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-[#FFDAD6]">
               <Icon name="logOut" size={18} className="text-[#93000A]" />

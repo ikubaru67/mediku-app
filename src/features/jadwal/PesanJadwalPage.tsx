@@ -29,6 +29,22 @@ export default function PesanJadwalPage() {
   const [selectedType, setSelectedType] = useState<'video' | 'chat'>('video')
   const [showDokter, setShowDokter] = useState(false)
 
+  const handleDokterKeyDown = (e: React.KeyboardEvent) => {
+    const currentIdx = mockPsikologList.findIndex(p => p.id === selectedDokter)
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      const next = (currentIdx + 1) % mockPsikologList.length
+      setSelectedDokter(mockPsikologList[next].id)
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      const prev = (currentIdx - 1 + mockPsikologList.length) % mockPsikologList.length
+      setSelectedDokter(mockPsikologList[prev].id)
+    } else if (e.key === 'Enter') {
+      e.preventDefault()
+      setShowDokter(false)
+    }
+  }
+
   const today = new Date()
   const days = useMemo(() => getWeekDates(), [])
   const selDate = days[selectedDay]
@@ -46,7 +62,7 @@ export default function PesanJadwalPage() {
       {/* Header */}
       <div className="bg-[rgba(247,249,252,0.80)] backdrop-blur-[6px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] px-5 h-16 flex items-center justify-between">
         <div className="w-10">
-          <button onClick={() => navigate(-1)} className={`p-1 ${btnAnim()}`}>
+          <button onClick={() => navigate(-1)} aria-label="Kembali" className={`p-1 ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none`}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#0059BB]"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </button>
         </div>
@@ -57,11 +73,11 @@ export default function PesanJadwalPage() {
       <div className="flex-1 overflow-y-auto pb-28 stagger-fade">
         {/* Select Doctor */}
         <div className="px-5 pt-5">
-          <button onClick={() => setShowDokter(!showDokter)} className={`w-full flex items-center justify-between bg-white rounded-[32px] p-4 shadow-[0px_10px_30px_rgba(0,123,255,0.05)] outline-1 outline-[rgba(193,198,215,0.30)] ${btnAnim()}`}>
+          <button onClick={() => setShowDokter(!showDokter)} className={`w-full flex items-center justify-between bg-white rounded-[32px] p-4 shadow-[0px_10px_30px_rgba(0,123,255,0.05)] outline-1 outline-[rgba(193,198,215,0.30)] ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none`}>
             <div className="flex items-center gap-3">
               {dokter ? (
                 <div className="w-12 h-12 rounded-full overflow-hidden bg-[#F2F4F7]">
-                  {foto ? <img src={foto} alt="" className="w-full h-full object-cover" /> : (
+                  {foto ? <img src={foto} alt="Foto dokter" className="w-full h-full object-cover" /> : (
                     <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center text-white font-bold text-sm">{inisial}</div>
                   )}
                 </div>
@@ -85,14 +101,15 @@ export default function PesanJadwalPage() {
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className={`text-[#717786] transition-transform duration-200 ${showDokter ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
           </button>
           {showDokter && (
-            <div className="mt-2 bg-white rounded-[32px] p-3 shadow-lg space-y-1">
+            <div className="mt-2 bg-white rounded-[32px] p-3 shadow-lg space-y-1" role="listbox" aria-label="Pilih dokter" onKeyDown={handleDokterKeyDown}>
               {mockPsikologList.map(p => {
                 const f = (IMAGES.doctorNameMap as any)[p.name]
                 return (
                   <button key={p.id} onClick={() => { setSelectedDokter(p.id); setShowDokter(false) }}
-                    className={`w-full flex items-center gap-3 p-3 rounded-2xl ${btnAnim()} ${selectedDokter === p.id ? 'bg-[rgba(0,89,187,0.05)]' : ''}`}>
+                    role="option" aria-selected={selectedDokter === p.id}
+                    className={`w-full flex items-center gap-3 p-3 rounded-2xl ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${selectedDokter === p.id ? 'bg-[rgba(0,89,187,0.05)]' : ''}`}>
                     <div className="w-10 h-10 rounded-full overflow-hidden bg-[#F2F4F7]">
-                      {f ? <img src={f} alt="" className="w-full h-full object-cover" /> : (
+                      {f ? <img src={f} alt="Foto dokter" className="w-full h-full object-cover" /> : (
                         <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center text-white font-bold text-xs">
                           {p.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()}
                         </div>
@@ -129,8 +146,8 @@ export default function PesanJadwalPage() {
             {days.map((d, idx) => {
               const active = idx === selectedDay
               return (
-                <button key={d.label + d.date} onClick={() => setSelectedDay(idx)}
-                  className={`flex flex-col items-center rounded-full min-w-[56px] h-20 py-2 px-4 shrink-0 ${btnAnim()} ${
+                <button key={d.label + d.date} onClick={() => setSelectedDay(idx)} aria-label={d.label + ' ' + d.date}
+                  className={`flex flex-col items-center rounded-full min-w-[56px] h-20 py-2 px-4 shrink-0 ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
                     active ? 'bg-gradient-to-b from-[#0059BB] to-[#0070EA] text-white shadow-[0px_4px_12px_rgba(0,89,187,0.30)]' : 'bg-white shadow-[0px_10px_30px_rgba(0,123,255,0.05)]'
                   }`}>
                   <span className={`text-xs font-medium ${active ? 'text-white' : 'text-[#717786]'}`}>{d.label}</span>
@@ -148,8 +165,8 @@ export default function PesanJadwalPage() {
             {times.map(t => {
               const active = t === selectedTime
               return (
-                <button key={t} onClick={() => setSelectedTime(t)}
-                  className={`px-6 py-2.5 rounded-[32px] text-sm ${btnAnim()} ${
+                <button key={t} onClick={() => setSelectedTime(t)} aria-label={t}
+                  className={`px-6 py-2.5 rounded-[32px] text-sm ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
                     active
                       ? 'bg-[rgba(0,89,187,0.10)] text-[#0059BB] font-bold outline outline-1 outline-[#0059BB] shadow-[0px_0px_0px_2px_rgba(0,89,187,0.20)]'
                       : 'bg-white text-[#414754] outline outline-1 outline-[#C1C6D7]'
@@ -168,8 +185,8 @@ export default function PesanJadwalPage() {
             {(['video', 'chat'] as const).map(type => {
               const active = selectedType === type
               return (
-                <button key={type} onClick={() => setSelectedType(type)}
-                  className={`flex-1 bg-white rounded-[32px] p-4 flex flex-col items-center gap-2 relative ${btnAnim()} ${
+                <button key={type} onClick={() => setSelectedType(type)} aria-label={type === 'video' ? 'Video Call' : 'Chat'}
+                  className={`flex-1 bg-white rounded-[32px] p-4 flex flex-col items-center gap-2 relative ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
                     active
                       ? 'outline outline-2 outline-[#0059BB] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]'
                       : 'outline outline-1 outline-[#C1C6D7] shadow-[0px_10px_30px_rgba(0,123,255,0.05)]'
@@ -220,7 +237,7 @@ export default function PesanJadwalPage() {
             }
             navigate(`/pembayaran/${selectedDokter}?day=${selDayNum}&month=${selDate.month}&time=${selectedTime}&type=${selectedType}&price=${price}`)
           }}
-            className={`bg-[#007AFF] text-white rounded-full px-10 py-3.5 text-base font-semibold shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10),0px_10px_15px_-3px_rgba(0,0,0,0.10)] flex items-center gap-2 ${btnAnim()}`}>
+            className={`bg-[#007AFF] text-white rounded-full px-10 py-3.5 text-base font-semibold shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10),0px_10px_15px_-3px_rgba(0,0,0,0.10)] flex items-center gap-2 ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none`}>
             Confirm Booking
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>

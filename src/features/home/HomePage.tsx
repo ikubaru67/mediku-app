@@ -42,11 +42,11 @@ export default function HomePage() {
       {/* Header */}
       <div className="bg-white rounded-b-3xl px-5 pt-4 pb-6 shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]">
         <div className="flex items-center justify-between mb-3">
-          <button onClick={() => navigate('/profil')} className="flex items-center gap-3">
+          <button onClick={() => navigate('/profil')} className="flex items-center gap-3 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 bg-[#0486F1] flex items-center justify-center relative">
               <span className="text-white font-extrabold text-base">{user?.displayName?.charAt(0).toUpperCase() || '?'}</span>
               {user?.photoURL && (
-                <img src={user.photoURL} alt="" className="absolute inset-0 w-full h-full object-cover"
+                <img src={user.photoURL} alt="Foto profil" className="absolute inset-0 w-full h-full object-cover"
                   onError={e => { (e.target as HTMLElement).style.display = 'none' }} />
               )}
             </div>
@@ -55,7 +55,7 @@ export default function HomePage() {
               <p className="text-[#0486F1] text-base font-extrabold leading-5">{user?.displayName || 'Pengguna'}</p>
             </div>
           </button>
-          <button onClick={() => navigate('/notifikasi')} className="relative w-[45.6px] h-[45.6px] flex items-center justify-center">
+          <button onClick={() => navigate('/notifikasi')} aria-label="Notifikasi" className="relative w-[45.6px] h-[45.6px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <svg width="18" height="22" viewBox="0 0 24 24" fill="none" className="text-[#0486F1]">
               <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
               <path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -68,7 +68,7 @@ export default function HomePage() {
       <div className="px-5 pt-6 space-y-6 stagger-fade">
         {/* Banner */}
         <button onClick={() => navigate('/jadwal')}
-          className="relative w-full bg-gradient-to-br from-[#0059BB] to-[#31E193] rounded-[32px] p-6 overflow-hidden shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10),0px_20px_25px_-5px_rgba(0,0,0,0.10)] text-left">
+          className="relative w-full bg-gradient-to-br from-[#0059BB] to-[#31E193] rounded-[32px] p-6 overflow-hidden shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10),0px_20px_25px_-5px_rgba(0,0,0,0.10)] text-left focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
           <div className="absolute w-40 h-40 rounded-full bg-white/10 blur-[32px] -top-10 right-0" />
           <div className="flex items-start justify-between">
             <div className="space-y-2">
@@ -97,10 +97,10 @@ export default function HomePage() {
 
         {/* Quick Actions */}
         <div>
-          <p className="text-[#191C1E] text-base mb-4">Akses Cepat</p>
+          <h2 className="text-[#191C1E] text-base mb-4">Akses Cepat</h2>
           <div className="grid grid-cols-4 gap-4">
             {quickActionsData.map((a) => (
-              <button key={a.id} onClick={() => navigate(a.path)} className="flex flex-col items-center gap-1">
+              <button key={a.id} onClick={() => navigate(a.path)} className="flex flex-col items-center gap-1 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none rounded-lg">
                 <div className="w-16 h-16 bg-white rounded-[32px] flex items-center justify-center shadow-[0px_2px_4px_-2px_rgba(0,0,0,0.10),0px_4px_6px_-1px_rgba(0,0,0,0.10)]">
                   <QAIcon name={a.icon} color={a.color} />
                 </div>
@@ -114,14 +114,14 @@ export default function HomePage() {
         <div>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-[#191C1E] text-base">Artikel Untukmu</h2>
-            <button onClick={() => navigate('/artikel')} className="text-[#0059BB] text-sm font-semibold">Lihat semua</button>
+            <button onClick={() => navigate('/artikel')} className="text-[#0059BB] text-sm font-semibold focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">Lihat semua</button>
           </div>
           <div className="space-y-4">
             {mockArtikelList.slice(0, 6).map((artikel, idx) => (
               <button key={artikel.id} onClick={() => navigate(`/artikel/${artikel.id}`)}
-                className="w-full bg-white rounded-[32px] overflow-hidden shadow-[0px_10px_30px_rgba(0,123,255,0.05)] text-left">
+                className="w-full bg-white rounded-[32px] overflow-hidden shadow-[0px_10px_30px_rgba(0,123,255,0.05)] text-left focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
                 <div className="h-36 bg-[#F2F4F7] overflow-hidden">
-                  <img src={IMAGES.feed[idx]} alt="" className="w-full h-full object-cover" />
+                  <img src={IMAGES.feed[idx]} alt={artikel.judul} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4">
                   <div className="flex items-center gap-2 mb-1">

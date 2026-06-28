@@ -65,7 +65,7 @@ export default function OnboardingPage() {
 
       <div className="flex items-center justify-between px-5 pt-3 relative z-10">
         {step > 0 && (
-          <button onClick={handlePrev} className="p-1">
+          <button onClick={handlePrev} aria-label="Kembali" className="p-1 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#0059BB]">
               <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -74,7 +74,7 @@ export default function OnboardingPage() {
         {step === 0 && <div className="w-10" />}
         <span className="bg-gradient-to-r from-[#0059BB] to-[#6DE46F] bg-clip-text text-transparent text-2xl font-bold leading-8">MediKu</span>
         {!isLast && (
-          <button onClick={handleSkip} className="text-[#0372D1] text-sm font-semibold leading-5 tracking-[0.14px]">
+          <button onClick={handleSkip} className="text-[#0372D1] text-sm font-semibold leading-5 tracking-[0.14px] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             Lewatkan
           </button>
         )}
@@ -83,7 +83,7 @@ export default function OnboardingPage() {
 
       <div key={step} className={`flex-1 flex flex-col items-center justify-center px-8 relative z-10 ${dir === 'left' ? 'animate-slide-left' : 'animate-slide-right'}`}>
         <div className="w-44 h-44 flex items-center justify-center mb-6">
-          <img src={slide.img} alt="" className="w-full h-full object-contain" />
+          <img src={slide.img} alt={slide.title} className="w-full h-full object-contain" />
         </div>
 
         {step === 0 ? (

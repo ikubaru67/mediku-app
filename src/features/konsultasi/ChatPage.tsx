@@ -55,13 +55,13 @@ export default function ChatPage() {
     <div className="min-h-screen bg-[#F7F9FC] flex flex-col">
       {/* Header */}
       <div className="bg-[rgba(247,249,252,0.80)] backdrop-blur-[6px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] px-4 h-20 flex items-center gap-3">
-        <button onClick={() => navigate(-1)} className="p-1">
+        <button onClick={() => navigate(-1)} aria-label="Kembali" className="p-1 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#0059BB]"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
         <div className="flex items-center gap-3 flex-1">
           <div className="relative">
             <div className="w-10 h-10 rounded-full overflow-hidden outline-2 outline-[#0070EA] bg-[#F2F4F7]">
-              {foto ? <img src={foto} alt="" className="w-full h-full object-cover" /> : (
+              {foto ? <img src={foto} alt={'Foto ' + (psikolog?.name || 'dokter')} className="w-full h-full object-cover" /> : (
                 <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center text-white font-bold text-xs">{inisial}</div>
               )}
             </div>
@@ -76,17 +76,17 @@ export default function ChatPage() {
           </div>
         </div>
         <div className="flex items-center gap-1 relative">
-          <button className="p-2">
+          <button aria-label="Menu" className="p-2 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <svg width="20" height="16" viewBox="0 0 24 24" fill="none" className="text-[#414754]"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
           </button>
-          <button onClick={() => setShowMenu(!showMenu)} className="p-2 relative">
+          <button onClick={() => setShowMenu(!showMenu)} aria-label="Menu" className="p-2 relative focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <svg width="4" height="16" viewBox="0 0 4 16" fill="none"><circle cx="2" cy="2" r="2" fill="#414754"/><circle cx="2" cy="8" r="2" fill="#414754"/><circle cx="2" cy="14" r="2" fill="#414754"/></svg>
           </button>
           {showMenu && (
             <>
               <div className="fixed inset-0 z-40" onClick={() => setShowMenu(false)} />
               <div className="absolute right-0 top-full mt-1 bg-white rounded-2xl shadow-lg z-50 py-2 w-48 outline-1 outline-[rgba(193,198,215,0.30)]">
-                <button onClick={handleSelesai} className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#BA1A1A] font-medium">
+                <button onClick={handleSelesai} className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#BA1A1A] font-medium focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#BA1A1A]"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/><path d="M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
                   Akhiri Konsultasi
                 </button>
@@ -107,7 +107,7 @@ export default function ChatPage() {
           <div key={msg.id} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'} items-end gap-2`}>
             {!msg.isUser && (
               <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[#F2F4F7]">
-                {foto ? <img src={foto} alt="" className="w-full h-full object-cover" /> : (
+                {foto ? <img src={foto} alt={'Foto ' + (psikolog?.name || 'dokter')} className="w-full h-full object-cover" /> : (
                   <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center text-white font-bold text-[10px]">{inisial}</div>
                 )}
               </div>
@@ -135,7 +135,7 @@ export default function ChatPage() {
         {messages.length > 0 && (
           <div className="flex justify-start items-end gap-2">
             <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[#F2F4F7]">
-              {foto ? <img src={foto} alt="" className="w-full h-full object-cover" /> : (
+              {foto ? <img src={foto} alt={'Foto ' + (psikolog?.name || 'dokter')} className="w-full h-full object-cover" /> : (
                 <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center text-white font-bold text-[10px]">{inisial}</div>
               )}
             </div>
@@ -160,18 +160,18 @@ export default function ChatPage() {
       {/* Input */}
       <div className="bg-[rgba(247,249,252,0.90)] backdrop-blur-[6px] px-4 py-3 border-t border-[rgba(193,198,215,0.30)]">
         <div className="flex items-end gap-2 max-w-[768px] mx-auto">
-          <button className="p-2">
+          <button aria-label="Lampirkan file" className="p-2 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#717786]"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
           <div className="flex-1 flex items-center bg-white rounded-[48px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline-1 outline-[#C1C6D7] px-4 py-2">
             <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && sendMessage()}
               placeholder="Tulis pesan..."
               className="flex-1 bg-transparent outline-none text-sm text-[#191C1E] placeholder:text-[#6B7280]" />
-            <button className="p-1">
+            <button aria-label="Unggah" className="p-1 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#717786]"><path d="M4 17l4 4 4-4M12 21V3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </button>
           </div>
-          <button onClick={sendMessage} className="w-12 h-12 bg-[#0059BB] rounded-full flex items-center justify-center shrink-0 shadow-md">
+          <button onClick={sendMessage} aria-label="Kirim" className="w-12 h-12 bg-[#0059BB] rounded-full flex items-center justify-center shrink-0 shadow-md focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <svg width="19" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           </button>
         </div>

@@ -15,7 +15,7 @@ export default function TopAppBar({ title, showBack, rightAction, className = ''
     <div className={`flex items-center justify-between px-5 h-16 bg-white ${className}`}>
       <div className="w-10">
         {showBack && (
-          <button onClick={() => navigate(-1)} className="p-1">
+          <button onClick={() => navigate(-1)} className="p-1 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none rounded-full">
             <Icon name="chevronLeft" size={24} className="text-gray-600" />
           </button>
         )}

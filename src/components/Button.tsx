@@ -30,6 +30,7 @@ export default function Button({
       className={`
         rounded-full px-6 py-[17.5px] font-semibold text-sm leading-5
         transition-all duration-200 disabled:opacity-50
+        focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none
         ${variants[variant]}
         ${fullWidth ? 'w-full' : ''}
         ${loading ? 'cursor-wait' : ''}

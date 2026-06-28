@@ -42,13 +42,13 @@ export default function JadwalSayaPage() {
         {/* Toggle */}
         <div className="inline-flex bg-[#ECEEF1] rounded-full p-1 w-full">
           <button onClick={() => setTab('mendatang')}
-            className={`flex-1 py-3 rounded-full text-sm font-semibold transition-all ${
+            className={`flex-1 py-3 rounded-full text-sm font-semibold transition-all focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
               tab === 'mendatang' ? 'bg-[#007AFF] text-white shadow-sm' : 'text-[#414754]'
             }`}>
             Mendatang
           </button>
           <button onClick={() => setTab('riwayat')}
-            className={`flex-1 py-3 rounded-full text-sm font-semibold transition-all ${
+            className={`flex-1 py-3 rounded-full text-sm font-semibold transition-all focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
               tab === 'riwayat' ? 'bg-[#007AFF] text-white shadow-sm' : 'text-[#414754]'
             }`}>
             Riwayat
@@ -67,7 +67,7 @@ export default function JadwalSayaPage() {
                   <div className="flex items-center gap-3">
                     <div className="w-14 h-14 rounded-full overflow-hidden outline-2 outline-[rgba(0,112,234,0.20)] bg-[#F2F4F7] shrink-0">
                       {foto ? (
-                        <img src={foto} alt="" className="w-full h-full object-cover" />
+                        <img src={foto} alt={'Foto ' + j.dokter} className="w-full h-full object-cover" />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center text-white font-bold text-sm">{inisial}</div>
                       )}
@@ -102,12 +102,12 @@ export default function JadwalSayaPage() {
                     const dokterId = j.dokterId || mockPsikologList.find((p: any) => p.name.includes(j.dokter.split(',')[0]))?.id || 'psi-1'
                     return (
                       <button onClick={() => navigate(j.type === 'chat' ? `/konsultasi/chat/${dokterId}` : `/konsultasi/video/${dokterId}`)}
-                        className="flex-1 bg-[#007AFF] text-white text-sm font-semibold rounded-full py-3.5 shadow-[0px_10px_30px_rgba(0,123,255,0.05)] active:scale-[0.97] transition-transform">
+                        className="flex-1 bg-[#007AFF] text-white text-sm font-semibold rounded-full py-3.5 shadow-[0px_10px_30px_rgba(0,123,255,0.05)] active:scale-[0.97] transition-transform focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
                         Mulai Konsultasi
                       </button>
                     )
                   })()}
-                  <button onClick={() => handleCancel(j.id)} className="flex-1 border-2 border-[#0059BB] text-[#0059BB] text-sm font-semibold rounded-full py-3.5 active:scale-[0.97] transition-transform">
+                  <button onClick={() => handleCancel(j.id)} aria-label="Batalkan" className="flex-1 border-2 border-[#0059BB] text-[#0059BB] text-sm font-semibold rounded-full py-3.5 active:scale-[0.97] transition-transform focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
                     Batalkan
                   </button>
                 </div>
@@ -147,7 +147,7 @@ export default function JadwalSayaPage() {
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-14 h-14 rounded-full overflow-hidden outline-2 outline-[rgba(0,112,234,0.20)] bg-[#F2F4F7] shrink-0">
-                      {foto ? <img src={foto} alt="" className="w-full h-full object-cover" /> : (
+                      {foto ? <img src={foto} alt={'Foto ' + j.dokter} className="w-full h-full object-cover" /> : (
                         <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center text-white font-bold text-sm">{inisial}</div>
                       )}
                     </div>

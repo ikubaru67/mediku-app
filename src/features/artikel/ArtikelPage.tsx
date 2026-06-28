@@ -66,7 +66,7 @@ export default function ArtikelPage() {
         <div className="flex gap-3 overflow-x-auto pb-3 -mx-5 px-5 mb-3">
           {filters.map(f => (
             <button key={f} onClick={() => setActiveFilter(f)}
-              className={`shrink-0 px-5 py-2 rounded-full text-sm font-normal whitespace-nowrap transition-all ${
+              className={`shrink-0 px-5 py-2 rounded-full text-sm font-normal whitespace-nowrap transition-all focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
                 activeFilter === f
                   ? 'bg-[#008CFF] text-white shadow-[0px_10px_30px_rgba(0,123,255,0.15)]'
                   : 'bg-white text-[#C1C6D7] border border-[#C1C6D7]'
@@ -82,7 +82,7 @@ export default function ArtikelPage() {
             <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
           <input type="text" value={search} onChange={e => setSearch(e.target.value)}
-            placeholder={`Search in ${activeFilter}...`}
+            placeholder={`Search in ${activeFilter}...`} aria-label="Cari artikel"
             className="bg-transparent outline-none text-sm text-[#191C1E] placeholder:text-[#6B7280] w-full" />
         </div>
       </div>
@@ -98,7 +98,7 @@ export default function ArtikelPage() {
 
         {featured && (
           <button onClick={() => navigate(`/artikel/${featured.id}`)}
-            className="relative w-full h-[400px] rounded-[32px] overflow-hidden mt-6 mb-8 block text-left shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10),0px_10px_15px_-3px_rgba(0,0,0,0.10)]">
+            className="relative w-full h-[400px] rounded-[32px] overflow-hidden mt-6 mb-8 block text-left shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10),0px_10px_15px_-3px_rgba(0,0,0,0.10)] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <div className={`absolute inset-0 bg-gradient-to-br ${categoryGradients[activeFilter] || 'from-blue-400 to-indigo-500'}`} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -119,7 +119,7 @@ export default function ArtikelPage() {
           <>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-base text-[#191C1E]">Recommended for You</h2>
-              <button className="flex items-center gap-1 text-[#0059BB] text-sm">
+              <button className="flex items-center gap-1 text-[#0059BB] text-sm focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
                 View all
                 <svg width="6" height="9" viewBox="0 0 6 9" fill="none" className="text-[#0059BB]"><path d="M1 1l4 3.5L1 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
               </button>
@@ -133,9 +133,9 @@ export default function ArtikelPage() {
                 const imgIdx = imgForArticle(artikel.id)
                 return (
                   <button key={artikel.id} onClick={() => navigate(`/artikel/${artikel.id}`)}
-                    className="w-full bg-white rounded-[32px] overflow-hidden text-left shadow-[0px_10px_30px_rgba(0,123,255,0.05)] outline outline-1 outline-[rgba(193,198,215,0.50)]">
+                    className="w-full bg-white rounded-[32px] overflow-hidden text-left shadow-[0px_10px_30px_rgba(0,123,255,0.05)] outline outline-1 outline-[rgba(193,198,215,0.50)] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
                     <div className="w-full h-[178px] overflow-hidden bg-[#F2F4F7]">
-                      <img src={IMAGES.feed[imgIdx]} alt="" className="w-full h-full object-cover" />
+                      <img src={IMAGES.feed[imgIdx]} alt={artikel.judul} className="w-full h-full object-cover" />
                     </div>
                     <div className="p-4">
                       <div className="flex items-center gap-2 mb-1">
@@ -146,7 +146,7 @@ export default function ArtikelPage() {
                       <h3 className="text-base font-normal text-[#191C1E] leading-6">{artikel.judul}</h3>
                       <div className="flex items-center gap-3 mt-4 pt-4 border-t border-[rgba(193,198,215,0.30)]">
                         <div className="w-8 h-8 rounded-full overflow-hidden bg-[#D8E2FF] flex items-center justify-center shrink-0">
-                          {foto ? <img src={foto} alt="" className="w-full h-full object-cover" /> : <span className="text-[#0059BB] text-xs font-bold">{inisial}</span>}
+                          {foto ? <img src={foto} alt={artikel.penulis} className="w-full h-full object-cover" /> : <span className="text-[#0059BB] text-xs font-bold">{inisial}</span>}
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-[#191C1E]">{artikel.penulis}</p>
@@ -169,9 +169,9 @@ export default function ArtikelPage() {
               const imgIdx = imgForArticle(artikel.id)
               return (
                 <button key={artikel.id} onClick={() => navigate(`/artikel/${artikel.id}`)}
-                  className="flex gap-4 w-full text-left bg-white rounded-[32px] p-4 outline outline-1 outline-[rgba(193,198,215,0.50)]">
+                  className="flex gap-4 w-full text-left bg-white rounded-[32px] p-4 outline outline-1 outline-[rgba(193,198,215,0.50)] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
                   <div className="w-[96px] h-[96px] rounded-[32px] overflow-hidden shrink-0 bg-[#F2F4F7]">
-                    <img src={IMAGES.feed[imgIdx]} alt="" className="w-full h-full object-cover" />
+                    <img src={IMAGES.feed[imgIdx]} alt={artikel.judul} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0 flex flex-col justify-center">
                     <span className="text-[#006D43] text-xs font-normal uppercase tracking-[0.80px]">{artikel.kategori}</span>
@@ -180,7 +180,7 @@ export default function ArtikelPage() {
                     <div className="flex items-center gap-2 text-xs text-[#191C1E] font-medium mt-1">
                       <span>{artikel.penulis}</span>
                       {foto ? (
-                        <div className="w-4 h-4 rounded-full overflow-hidden"><img src={foto} alt="" className="w-full h-full object-cover" /></div>
+                        <div className="w-4 h-4 rounded-full overflow-hidden"><img src={foto} alt={artikel.penulis} className="w-full h-full object-cover" /></div>
                       ) : (
                         <span className="text-[#717786]">• {artikel.tanggal}</span>
                       )}

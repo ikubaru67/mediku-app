@@ -37,14 +37,14 @@ export default function KonsultasiPage() {
             <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
           </svg>
           <input type="text" value={search} onChange={e => setSearch(e.target.value)}
-            placeholder="Cari nama atau spesialisasi"
+            placeholder="Cari nama atau spesialisasi" aria-label="Cari dokter"
             className="bg-transparent outline-none text-sm text-[#191C1E] placeholder:text-[#6B7280] w-full" />
         </div>
 
         <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
           {filters.map(f => (
             <button key={f} onClick={() => setActiveFilter(f)}
-              className={`px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+              className={`px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
                 activeFilter === f ? 'bg-[#0079FF] text-white' : 'bg-[#F2F4F7] text-[#414754]'
               }`}>
               {f}
@@ -64,7 +64,7 @@ export default function KonsultasiPage() {
             <div className="flex gap-4">
               <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 bg-[#F2F4F7]">
                 {foto ? (
-                  <img src={foto} alt="" className="w-full h-full object-cover" />
+                  <img src={foto} alt={'Foto ' + p.name} className="w-full h-full object-cover" />
                 ) : (
                   <div className={`w-full h-full flex items-center justify-center text-white font-bold text-sm ${
                     p.kategori === 'Psikolog' ? 'bg-gradient-to-br from-[#0059BB] to-[#0070EA]' : 'bg-gradient-to-br from-[#006D43] to-[#31E193]'
@@ -99,7 +99,7 @@ export default function KonsultasiPage() {
               </div>
             </div>
             <button onClick={() => navigate(`/konsultasi/${p.id}`)}
-              className="w-full mt-4 py-3 rounded-full text-sm font-semibold text-white bg-[#0079FF]">
+              className="w-full mt-4 py-3 rounded-full text-sm font-semibold text-white bg-[#0079FF] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
               Pilih {p.kategori}
             </button>
           </div>
@@ -108,9 +108,9 @@ export default function KonsultasiPage() {
       </div>
 
       <div className="mx-5 mt-6 bg-gradient-to-r from-[#0059BB] to-[#006D43] rounded-[32px] p-6">
-        <p className="text-white text-lg">Butuh bantuan segera?</p>
+        <h2 className="text-white text-lg">Butuh bantuan segera?</h2>
         <p className="text-white/80 text-xs mt-1">Konsultasi anonim tersedia 24/7</p>
-        <button onClick={() => setComingSoon('Konsultasi Anonim')} className="mt-4 bg-white text-[#0059BB] rounded-full px-6 py-2 text-sm font-semibold">Hubungi Sekarang</button>
+        <button onClick={() => setComingSoon('Konsultasi Anonim')} className="mt-4 bg-white text-[#0059BB] rounded-full px-6 py-2 text-sm font-semibold focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">Hubungi Sekarang</button>
       </div>
 
       {comingSoon && <ComingSoonPopup feature={comingSoon} onClose={() => setComingSoon(null)} />}

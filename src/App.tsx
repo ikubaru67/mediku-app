@@ -29,8 +29,11 @@ export default function App() {
   const location = useLocation()
 
   return (
-    <div className="max-w-[430px] mx-auto min-h-screen bg-white shadow-sm relative">
-      <div key={location.pathname} className="animate-page-in">
+    <div tabIndex={-1} className="max-w-[430px] mx-auto min-h-screen bg-white shadow-sm relative focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-white focus:text-[#0059BB] focus:px-4 focus:py-2 focus:rounded-full focus:shadow-lg">
+        Skip to content
+      </a>
+      <div id="main-content" key={location.pathname} className="animate-page-in">
       <Routes>
         <Route path="/" element={<OnboardingPage />} />
         <Route path="/login" element={<LoginPage />} />

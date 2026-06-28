@@ -15,7 +15,7 @@ export default function LupaPasswordPage() {
   return (
     <div className="min-h-screen bg-[#F7F9FC] flex flex-col">
       <div className="px-5 pt-3">
-        <button onClick={() => navigate(-1)} className="p-1">
+        <button onClick={() => navigate(-1)} aria-label="Kembali" className="p-1 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#0059BB]">
             <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -40,8 +40,9 @@ export default function LupaPasswordPage() {
         {!sent ? (
           <form onSubmit={handleSubmit} className="w-full space-y-6">
             <div>
-              <label className="text-[#414754] text-sm font-semibold block mb-2">Email</label>
+              <label htmlFor="lupapw-email" className="text-[#414754] text-sm font-semibold block mb-2">Email</label>
               <input
+                id="lupapw-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

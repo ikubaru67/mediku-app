@@ -27,10 +27,10 @@ export default function ProfilPsikologPage() {
       {/* Header */}
       <div className="bg-white rounded-b-[32px] px-5 pt-3 pb-4 shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]">
         <div className="flex items-center gap-3">
-          <button onClick={() => navigate(-1)} className="p-1">
+          <button onClick={() => navigate(-1)} aria-label="Kembali" className="p-1 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#0486F1]"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </button>
-          <h1 className="text-[#0486F1] text-base font-extrabold leading-6">Profil Psikolog</h1>
+          <p className="text-[#0486F1] text-base font-extrabold leading-6">Profil Psikolog</p>
         </div>
       </div>
 
@@ -39,7 +39,7 @@ export default function ProfilPsikologPage() {
         <div className="relative mb-4">
           <div className="w-32 h-32 rounded-full overflow-hidden shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10),0px_20px_25px_-5px_rgba(0,0,0,0.10)] border-4 border-white">
             {foto ? (
-              <img src={foto} alt="" className="w-full h-full object-cover" />
+              <img src={foto} alt={'Foto ' + psikolog.name} className="w-full h-full object-cover" />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center">
                 <span className="text-white font-bold text-3xl">{inisial}</span>
@@ -146,12 +146,12 @@ export default function ProfilPsikologPage() {
       <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-[rgba(255,255,255,0.80)] backdrop-blur-[6px] px-4 py-5 border-t border-[rgba(193,198,215,0.30)]">
         <div className="flex gap-3">
           <button onClick={() => navigate(`/jadwal/baru?id=${id}`)}
-            className="flex-1 bg-[#0079FF] text-white rounded-full py-3.5 text-sm font-semibold flex items-center justify-center gap-2">
+            className="flex-1 bg-[#0079FF] text-white rounded-full py-3.5 text-sm font-semibold flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
             Chat Sekarang
           </button>
           <button onClick={() => navigate(`/jadwal/baru?id=${id}`)}
-            className="flex-1 bg-white text-[#0059BB] rounded-full py-3.5 text-sm font-semibold border-2 border-[#0059BB]">
+            className="flex-1 bg-white text-[#0059BB] rounded-full py-3.5 text-sm font-semibold border-2 border-[#0059BB] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             Book Sekarang
           </button>
         </div>

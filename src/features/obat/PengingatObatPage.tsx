@@ -38,7 +38,7 @@ export default function PengingatObatPage() {
       {/* Header */}
       <div className="bg-[rgba(247,249,252,0.80)] backdrop-blur-[6px] shadow-[0px_10px_30px_rgba(0,123,255,0.05)] px-5 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <button onClick={() => navigate(-1)} className="p-1">
+          <button onClick={() => navigate(-1)} aria-label="Kembali" className="p-1 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#0059BB]"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </button>
           <h1 className="text-[#0059BB] text-2xl font-bold">Pengingat Obat</h1>
@@ -60,7 +60,7 @@ export default function PengingatObatPage() {
             const active = idx === selectedDay
             return (
               <button key={day.label} onClick={() => setSelectedDay(idx)}
-                className={`flex flex-col items-center rounded-full min-w-[56px] h-20 py-2 px-4 transition-all shrink-0 ${
+                className={`flex flex-col items-center rounded-full min-w-[56px] h-20 py-2 px-4 transition-all shrink-0 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
                   active
                     ? 'bg-gradient-to-b from-[#0059BB] to-[#0070EA] text-white shadow-[0px_4px_12px_rgba(0,89,187,0.30)]'
                     : idx < 2 ? 'bg-[#ECEEF1]' : 'bg-[#E6E8EB]'
@@ -79,7 +79,7 @@ export default function PengingatObatPage() {
           <div className="w-32 h-32 rounded-full bg-white/10 absolute -right-8 top-4" />
           <div className="flex items-start justify-between relative z-10">
             <div>
-              <h3 className="text-[#FEFCFF] text-2xl font-bold">Kepatuhan Obat</h3>
+              <h2 className="text-[#FEFCFF] text-2xl font-bold">Kepatuhan Obat</h2>
               <p className="text-[#FEFCFF]/90 text-sm mt-1">{done} dari {total} obat telah diminum hari ini.</p>
             </div>
             <div className="relative w-20 h-20">
@@ -132,7 +132,7 @@ export default function PengingatObatPage() {
                         </div>
                       ) : (
                         <button onClick={() => toggleComplete(obat.id)}
-                          className="h-10 px-4 rounded-full text-xs font-medium text-[#0059BB] border border-[#0059BB] whitespace-nowrap">
+                          className="h-10 px-4 rounded-full text-xs font-medium text-[#0059BB] border border-[#0059BB] whitespace-nowrap focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
                           Selesai
                         </button>
                       )}
@@ -146,7 +146,7 @@ export default function PengingatObatPage() {
       </div>
 
       {/* FAB */}
-      <button className="fixed bottom-24 right-1/2 translate-x-[155px] w-14 h-14 bg-gradient-to-br from-[#0059BB] to-[#0070EA] rounded-full flex items-center justify-center shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10),0px_20px_25px_-5px_rgba(0,0,0,0.10)]">
+      <button aria-label="Tambah obat" className="fixed bottom-24 right-1/2 translate-x-[155px] w-14 h-14 bg-gradient-to-br from-[#0059BB] to-[#0070EA] rounded-full flex items-center justify-center shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10),0px_20px_25px_-5px_rgba(0,0,0,0.10)] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M12 5v14M5 12h14"/></svg>
       </button>
     </div>

@@ -35,12 +35,17 @@ export default function PembayaranSuksesPage() {
   useEffect(() => {
     if (savedRef.current) return
     savedRef.current = true
-    confetti({
-      particleCount: 30,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#0059BB', '#0070EA', '#006D43', '#56FBAB'],
-    })
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!prefersReducedMotion) {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      confetti({
+        particleCount: 30,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#0059BB', '#0070EA', '#006D43', '#56FBAB'],
+      })
+    }
+    }
     const key = `mediku_jadwal_${auth.currentUser?.uid || 'temp'}`
     let existing = JSON.parse(localStorage.getItem(key) || '[]')
     if (!Array.isArray(existing)) existing = []
@@ -91,11 +96,11 @@ export default function PembayaranSuksesPage() {
   return (
     <div className="min-h-screen bg-[#F7F9FC] overflow-hidden">
       <div className="bg-[#F7F9FC] px-5 h-16 flex items-center justify-center">
-        <span className="text-[#0059BB] text-2xl font-bold">Confirmation</span>
+        <p className="text-[#0059BB] text-2xl font-bold">Confirmation</p>
       </div>
 
       <div className="flex flex-col items-center px-5">
-        <div className="relative mt-12 mb-6 animate-pop-in">
+        <div className="relative mt-12 mb-6 animate-pop-in" role="status" aria-live="polite">
           <div className="w-24 h-24 rounded-full bg-[#56FBAB] shadow-[0px_0px_50px_rgba(86,251,171,0.30)] flex items-center justify-center">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#007146" strokeWidth="3" strokeLinecap="round"><path d="M5 13l4 4L19 7"/></svg>
           </div>
@@ -110,7 +115,7 @@ export default function PembayaranSuksesPage() {
           <div className="flex items-center gap-4 pb-4 border-b border-[#E0E3E6]">
             <div className="w-14 h-14 rounded-full overflow-hidden shrink-0 bg-[#ECEEF1]">
               {foto ? (
-                <img src={foto} alt="" className="w-full h-full object-cover" />
+                <img src={foto} alt={'Foto ' + dokterName} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center text-white font-bold text-sm">{inisial}</div>
               )}
@@ -149,11 +154,11 @@ export default function PembayaranSuksesPage() {
 
         <div className="w-full mt-8 pb-8 space-y-3 animate-fade-up" style={{ animationDelay: '1s' }}>
           <button onClick={() => navigate('/jadwal')}
-            className={`w-full bg-[#0079FF] text-white rounded-full py-4 text-sm font-semibold shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10),0px_10px_15px_-3px_rgba(0,0,0,0.10)] ${btnAnim()}`}>
+            className={`w-full bg-[#0079FF] text-white rounded-full py-4 text-sm font-semibold shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10),0px_10px_15px_-3px_rgba(0,0,0,0.10)] ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none`}>
             Lihat Jadwal Saya
           </button>
           <button onClick={() => navigate('/home')}
-            className={`w-full bg-white text-[#0059BB] rounded-full py-4 text-sm font-semibold border-2 border-[#0059BB] ${btnAnim()}`}>
+            className={`w-full bg-white text-[#0059BB] rounded-full py-4 text-sm font-semibold border-2 border-[#0059BB] ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none`}>
             Kembali ke Beranda
           </button>
         </div>

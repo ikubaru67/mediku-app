@@ -35,6 +35,13 @@
 @layer base {
   body {
     @apply bg-surface text-gray-600 font-sans antialiased;
+    line-height: 1.5;
+  }
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
   }
 }
 
@@ -157,4 +164,19 @@
 }
 ::view-transition-new(notif-card) {
   animation: 0.25s ease-out both slide-up;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-splash-logo,
+  .animate-splash-icon,
+  .animate-splash-text {
+    animation: none;
+    opacity: 1;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(notif-card),
+  ::view-transition-new(notif-card) {
+    animation: none;
+  }
 }

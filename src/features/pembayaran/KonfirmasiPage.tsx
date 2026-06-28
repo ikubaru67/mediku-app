@@ -42,10 +42,10 @@ export default function KonfirmasiPage() {
     <div className="min-h-screen bg-[#F7F9FC] flex flex-col">
       {/* Header */}
       <div className="bg-[rgba(247,249,252,0.80)] backdrop-blur-[6px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] px-5 h-16 flex items-center gap-4">
-        <button onClick={() => navigate(-1)} className={`p-1 ${btnAnim()}`}>
+        <button onClick={() => navigate(-1)} aria-label="Kembali" className={`p-1 ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none`}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#0059BB]"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
-        <span className="text-[#0059BB] text-2xl font-bold">Pembayaran</span>
+        <h1 className="text-[#0059BB] text-2xl font-bold">Pembayaran</h1>
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 pt-6 pb-32 space-y-6 stagger-fade">
@@ -54,7 +54,7 @@ export default function KonfirmasiPage() {
 
         <div className="bg-white rounded-[32px] p-6 shadow-[0px_10px_30px_rgba(0,123,255,0.05)] outline-1 outline-[rgba(193,198,215,0.30)] flex gap-4">
           <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 outline-2 outline-[rgba(0,112,234,0.20)]">
-            {foto ? <img src={foto} alt="" className="w-full h-full object-cover" /> : (
+            {foto ? <img src={foto} alt={'Foto ' + psikolog.name} className="w-full h-full object-cover" /> : (
               <div className="w-full h-full bg-gradient-to-br from-[#0059BB] to-[#006D43] flex items-center justify-center text-white font-bold text-base">{inisial}</div>
             )}
           </div>
@@ -82,7 +82,7 @@ export default function KonfirmasiPage() {
               const active = selectedPayment === pm.id
               return (
                 <button key={pm.id} onClick={() => setSelectedPayment(pm.id)}
-                  className={`w-full flex items-center justify-between px-4 py-4 rounded-[32px] ${btnAnim()} ${
+                  className={`w-full flex items-center justify-between px-4 py-4 rounded-[32px] ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
                     active ? 'bg-[rgba(0,89,187,0.05)] outline outline-1 outline-[#0059BB]' : 'bg-white outline outline-1 outline-[#C1C6D7]'
                   }`}>
                   <div className="flex items-center gap-4">
@@ -104,7 +104,7 @@ export default function KonfirmasiPage() {
           <div className="space-y-3">
             {paymentMethods.va.map(pm => (
               <button key={pm.id} onClick={() => setSelectedPayment(pm.id)}
-                className={`w-full flex items-center justify-between px-4 py-4 rounded-[32px] ${btnAnim()} ${
+                className={`w-full flex items-center justify-between px-4 py-4 rounded-[32px] ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none ${
                   selectedPayment === pm.id ? 'bg-[rgba(0,89,187,0.05)] outline outline-1 outline-[#0059BB]' : 'bg-white outline outline-1 outline-[#C1C6D7]'
                 }`}>
                 <div className="flex items-center gap-4">
@@ -129,7 +129,7 @@ export default function KonfirmasiPage() {
       {/* Bottom */}
       <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-[rgba(247,249,252,0.90)] backdrop-blur-[12px] px-5 py-5 rounded-t-[32px] shadow-[0px_-4px_20px_rgba(0,0,0,0.05)]">
         <button onClick={() => navigate(`/pembayaran/sukses?day=${dayNum}&month=${monthIdx}&time=${time}&price=${price}&type=${searchParams.get('type') || 'video'}&dokter=${encodeURIComponent(psikolog.name)}&spesialisasi=${encodeURIComponent(psikolog.spesialisasi)}&id=${id}`)}
-          className={`w-full bg-[#007AFF] text-white rounded-full py-4 text-lg font-semibold shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10),0px_10px_15px_-3px_rgba(0,0,0,0.10)] flex items-center justify-center gap-2 ${btnAnim()}`}>
+          className={`w-full bg-[#007AFF] text-white rounded-full py-4 text-lg font-semibold shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10),0px_10px_15px_-3px_rgba(0,0,0,0.10)] flex items-center justify-center gap-2 ${btnAnim()} focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none`}>
           Bayar Sekarang
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>

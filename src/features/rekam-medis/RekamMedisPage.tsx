@@ -64,7 +64,7 @@ export default function RekamMedisPage() {
 
       {/* History */}
       <div key={activeFilter} className="px-5 mt-6 stagger-fade">
-        <h3 className="text-[#191C1E] text-2xl font-bold mb-4">Riwayat Terbaru</h3>
+        <h2 className="text-[#191C1E] text-2xl font-bold mb-4">Riwayat Terbaru</h2>
         <div className="space-y-4">
           {filtered.map(rm => (
             <div key={rm.id}
