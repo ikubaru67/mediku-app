@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #E8F0FE;
+  --color-primary-100: #BFD8F5;
+  --color-primary-200: #94B9EB;
+  --color-primary-300: #5E95E0;
+  --color-primary-400: #3B7DD8;
+  --color-primary-500: #0070EA;
+  --color-primary-600: #0059BB;
+  --color-primary-700: #004493;
+  --color-primary-800: #00306B;
+  --color-primary-900: #001A41;
+  --color-secondary-50: #E8F9ED;
+  --color-secondary-100: #C2EDD0;
+  --color-secondary-200: #96E0B0;
+  --color-secondary-300: #56FBAB;
+  --color-secondary-400: #3AE08F;
+  --color-secondary-500: #006D43;
+  --color-secondary-600: #005934;
+  --color-surface: #F7F9FC;
+  --color-gray-100: #ECEEF1;
+  --color-gray-200: #E0E3E6;
+  --color-gray-300: #C1C6D7;
+  --color-gray-400: #717786;
+  --color-gray-500: #414754;
+  --color-gray-600: #191C1E;
+  --color-accent-yellow: #EAB308;
+  --color-accent-red: #BA1A1A;
+  --color-accent-green: #67E472;
+  --color-accent-blue: #0486F1;
+  --font-family-sans: 'Manrope', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-gray-600 font-sans antialiased;
+  }
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-page-in {
+  animation: page-in 0.3s ease-out;
+}
+
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-left {
+  animation: slide-left 0.3s ease-out;
+}
+
+.animate-slide-right {
+  animation: slide-right 0.3s ease-out;
+}
+
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.4s ease-out both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.4s ease-out both;
+}
+
+.stagger-fade > * {
+  animation: fade-up 0.35s ease-out both;
+}
+.stagger-fade > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-fade > *:nth-child(2) { animation-delay: 0.12s; }
+.stagger-fade > *:nth-child(3) { animation-delay: 0.19s; }
+.stagger-fade > *:nth-child(4) { animation-delay: 0.26s; }
+.stagger-fade > *:nth-child(5) { animation-delay: 0.33s; }
+.stagger-fade > *:nth-child(6) { animation-delay: 0.40s; }
+.stagger-fade > *:nth-child(7) { animation-delay: 0.47s; }
+.stagger-fade > *:nth-child(8) { animation-delay: 0.54s; }
+.stagger-fade > *:nth-child(9) { animation-delay: 0.61s; }
+.stagger-fade > *:nth-child(10) { animation-delay: 0.68s; }
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.85) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-pop-in {
+  animation: pop-in 0.3s ease-out both;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes splash-logo {
+  0% { opacity: 0; transform: scale(0.5) translateY(-20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-splash-logo {
+  animation: splash-logo 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes splash-icon {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-splash-icon {
+  animation: splash-icon 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+@keyframes splash-text {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-splash-text {
+  animation: splash-text 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s both;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes shrink-out {
+  to { opacity: 0; transform: scale(0.9); }
+}
+@keyframes slide-up {
+  from { transform: translateY(8px); opacity: 0; }
+}
+
+::view-transition-old(notif-card) {
+  animation: 0.2s ease-out both shrink-out;
+  height: 100%;
+}
+::view-transition-new(notif-card) {
+  animation: 0.25s ease-out both slide-up;
+}
