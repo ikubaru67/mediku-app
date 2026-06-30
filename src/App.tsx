@@ -11,6 +11,7 @@ import KonsultasiPage from './features/konsultasi/KonsultasiPage'
 import ProfilPsikologPage from './features/konsultasi/ProfilPsikologPage'
 import ChatPage from './features/konsultasi/ChatPage'
 import VideoCallPage from './features/konsultasi/VideoCallPage'
+import AnonimChatPage from './features/konsultasi/AnonimChatPage'
 import JadwalSayaPage from './features/jadwal/JadwalSayaPage'
 import PesanJadwalPage from './features/jadwal/PesanJadwalPage'
 import KonfirmasiPage from './features/pembayaran/KonfirmasiPage'
@@ -46,6 +47,7 @@ export default function App() {
 
         {/* Full screen (no bottom nav) */}
         <Route path="/konsultasi/chat/:id" element={<ProtectedRoute><ChatPage /></ProtectedRoute>} />
+        <Route path="/konsultasi/chat/anonim" element={<ProtectedRoute><AnonimChatPage /></ProtectedRoute>} />
         <Route path="/konsultasi/video/:id" element={<ProtectedRoute><VideoCallPage /></ProtectedRoute>} />
         <Route path="/jadwal/baru" element={<ProtectedRoute><PesanJadwalPage /></ProtectedRoute>} />
         <Route path="/pembayaran/:id" element={<ProtectedRoute><KonfirmasiPage /></ProtectedRoute>} />

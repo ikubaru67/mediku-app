@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { mockPsikologList } from '../../mocks/konsultasi'
-import ComingSoonPopup from '../../components/ComingSoonPopup'
 import { IMAGES } from '../../config/images'
 
 const filters = ['Semua', 'Psikolog', 'Psikiater', 'Dokter Umum']
@@ -15,7 +14,6 @@ const kategoriColors: Record<string, string> = {
 export default function KonsultasiPage() {
   const [search, setSearch] = useState('')
   const [activeFilter, setActiveFilter] = useState('Semua')
-  const [comingSoon, setComingSoon] = useState<string | null>(null)
   const navigate = useNavigate()
 
   const filtered = mockPsikologList.filter(p => {
@@ -111,10 +109,8 @@ export default function KonsultasiPage() {
       <div className="mx-5 mt-6 bg-gradient-to-r from-[#0059BB] to-[#006D43] rounded-[32px] p-6">
         <h2 className="text-white text-lg">Butuh bantuan segera?</h2>
         <p className="text-white/80 text-xs mt-1">Konsultasi anonim tersedia 24/7</p>
-        <button onClick={() => setComingSoon('Konsultasi Anonim')} className="mt-4 bg-white text-[#0059BB] rounded-full px-6 py-2 text-sm font-semibold focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">Hubungi Sekarang</button>
+        <button onClick={() => navigate('/konsultasi/chat/anonim')} className="mt-4 bg-white text-[#0059BB] rounded-full px-6 py-2 text-sm font-semibold focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">Hubungi Sekarang</button>
       </div>
-
-      {comingSoon && <ComingSoonPopup feature={comingSoon} onClose={() => setComingSoon(null)} />}
     </div>
   )
 }
