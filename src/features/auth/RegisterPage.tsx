@@ -146,7 +146,7 @@ export default function RegisterPage() {
           </button>
 
           <p className="text-center mt-6 text-sm text-[#717786]">
-            Sudah punya akun? <Link to="/login" className="text-[#0059BB] font-semibold">Login di sini</Link>
+            Sudah punya akun? <Link to="/login" className="text-[#0059BB] font-semibold">Masuk di sini</Link>
           </p>
 
           <div className="flex items-center justify-center gap-1 mt-6 text-xs text-[#717786]">

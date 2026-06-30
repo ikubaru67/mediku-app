@@ -215,8 +215,8 @@ export default function MapsKlinikPage() {
         </div>
         <div className="flex justify-center">
           <div className="inline-flex bg-[#E6E8EB] rounded-full p-1 items-center gap-1">
-            <button onClick={() => navigate(-1)} className="px-5 py-1.5 rounded-full text-sm font-semibold text-[#414754]">List</button>
-            <button className="px-5 py-1.5 rounded-full text-sm font-bold text-[#0059BB] bg-white shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]">Map</button>
+            <button onClick={() => navigate(-1)} className="px-5 py-1.5 rounded-full text-sm font-semibold text-[#414754]">Daftar</button>
+            <button className="px-5 py-1.5 rounded-full text-sm font-bold text-[#0059BB] bg-white shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]">Peta</button>
             <button onClick={handleRefresh} aria-label="Refresh"
               className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white/50 transition-colors">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0059BB" strokeWidth="2" strokeLinecap="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>

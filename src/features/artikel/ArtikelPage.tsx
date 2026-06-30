@@ -4,47 +4,47 @@ import { mockArtikelList } from '../../mocks/artikel'
 import { IMAGES } from '../../config/images'
 
 const categoryGradients: Record<string, string> = {
-  'Mental Health': 'from-blue-400 to-indigo-500',
-  'Nutrition': 'from-green-400 to-emerald-500',
-  'Physical Activity': 'from-orange-400 to-rose-500',
-  'Medication': 'from-purple-400 to-violet-500',
-  'Sleep Hygiene': 'from-teal-400 to-cyan-500',
+  'Kesehatan Mental': 'from-blue-400 to-indigo-500',
+  'Nutrisi': 'from-green-400 to-emerald-500',
+  'Aktivitas Fisik': 'from-orange-400 to-rose-500',
+  'Pengobatan': 'from-purple-400 to-violet-500',
+  'Kebersihan Tidur': 'from-teal-400 to-cyan-500',
 }
 
 const penulisInfo: Record<string, { role: string }> = {
-  'Dr. Aulia Rahman, M.Psi.': { role: 'Psychologist' },
-  'Budi Kusuma, M.Psi': { role: 'Mental Health Expert' },
-  'Dr. Sarah Wijaya, Sp.KJ': { role: 'Psychiatrist' },
-  'Dr. Faisal Akbar': { role: 'Psychologist' },
-  'Lina Safitri, M.Psi': { role: 'Psychologist' },
+  'Dr. Aulia Rahman, M.Psi.': { role: 'Psikolog' },
+  'Budi Kusuma, M.Psi': { role: 'Ahli Kesehatan Mental' },
+  'Dr. Sarah Wijaya, Sp.KJ': { role: 'Psikiater' },
+  'Dr. Faisal Akbar': { role: 'Psikolog' },
+  'Lina Safitri, M.Psi': { role: 'Psikolog' },
 }
 
 const artikelExtra: Record<string, { deskripsi: string; waktuBaca: string }> = {
-  'artikel-1': { deskripsi: 'Learn how Dr. Aulia Rahman\'s proven mindfulness methods can help you find balance.', waktuBaca: '8 min read' },
-  'artikel-2': { deskripsi: 'Why this simple technique can transform your stress response.', waktuBaca: '5 min read' },
-  'artikel-3': { deskripsi: 'Practical strategies for thriving in hybrid workplace environments.', waktuBaca: '7 min read' },
-  'artikel-4': { deskripsi: 'Start your day with clarity and purpose.', waktuBaca: '4 min read' },
-  'artikel-5': { deskripsi: 'Hubungan antara nutrisi dan kesehatan mental yang optimal.', waktuBaca: '6 min read' },
-  'artikel-6': { deskripsi: 'Why a 20-minute walk in nature boosts your mood.', waktuBaca: '3 min read' },
-  'artikel-7': { deskripsi: 'Makanan super untuk meningkatkan fungsi otak.', waktuBaca: '5 min read' },
-  'artikel-8': { deskripsi: 'Nutrisi yang tepat dapat membantu mengelola depresi.', waktuBaca: '4 min read' },
-  'artikel-9': { deskripsi: 'Gerakan sederhana yang berdampak besar pada suasana hati.', waktuBaca: '6 min read' },
-  'artikel-10': { deskripsi: 'Panduan yoga untuk pemula dan manfaatnya.', waktuBaca: '7 min read' },
-  'artikel-11': { deskripsi: 'Manfaat jalan kaki 30 menit bagi kesehatan mental.', waktuBaca: '4 min read' },
-  'artikel-12': { deskripsi: 'Informasi lengkap tentang obat antidepresan.', waktuBaca: '8 min read' },
-  'artikel-13': { deskripsi: 'Panduan penggunaan obat kesehatan mental.', waktuBaca: '5 min read' },
-  'artikel-14': { deskripsi: 'Sleep hygiene untuk pikiran yang lebih sehat.', waktuBaca: '6 min read' },
-  'artikel-15': { deskripsi: 'Bagaimana kualitas tidur mempengaruhi depresi.', waktuBaca: '5 min read' },
-  'artikel-16': { deskripsi: 'Langkah sederhana untuk tidur lebih nyenyak.', waktuBaca: '4 min read' },
+  'artikel-1': { deskripsi: 'Pelajari bagaimana metode mindfulness Dr. Aulia Rahman dapat membantu Anda menemukan keseimbangan.', waktuBaca: '8 menit baca' },
+  'artikel-2': { deskripsi: 'Mengapa teknik sederhana ini dapat mengubah respons stres Anda.', waktuBaca: '5 menit baca' },
+  'artikel-3': { deskripsi: 'Strategi praktis untuk berkembang di lingkungan kerja hybrid.', waktuBaca: '7 menit baca' },
+  'artikel-4': { deskripsi: 'Mulai hari Anda dengan ketenangan dan tujuan.', waktuBaca: '4 menit baca' },
+  'artikel-5': { deskripsi: 'Hubungan antara nutrisi dan kesehatan mental yang optimal.', waktuBaca: '6 menit baca' },
+  'artikel-6': { deskripsi: 'Mengapa jalan kaki 20 menit di alam meningkatkan suasana hati.', waktuBaca: '3 menit baca' },
+  'artikel-7': { deskripsi: 'Makanan super untuk meningkatkan fungsi otak.', waktuBaca: '5 menit baca' },
+  'artikel-8': { deskripsi: 'Nutrisi yang tepat dapat membantu mengelola depresi.', waktuBaca: '4 menit baca' },
+  'artikel-9': { deskripsi: 'Gerakan sederhana yang berdampak besar pada suasana hati.', waktuBaca: '6 menit baca' },
+  'artikel-10': { deskripsi: 'Panduan yoga untuk pemula dan manfaatnya.', waktuBaca: '7 menit baca' },
+  'artikel-11': { deskripsi: 'Manfaat jalan kaki 30 menit bagi kesehatan mental.', waktuBaca: '4 menit baca' },
+  'artikel-12': { deskripsi: 'Informasi lengkap tentang obat antidepresan.', waktuBaca: '8 menit baca' },
+  'artikel-13': { deskripsi: 'Panduan penggunaan obat kesehatan mental.', waktuBaca: '5 menit baca' },
+  'artikel-14': { deskripsi: 'Sleep hygiene untuk pikiran yang lebih sehat.', waktuBaca: '6 menit baca' },
+  'artikel-15': { deskripsi: 'Bagaimana kualitas tidur mempengaruhi depresi.', waktuBaca: '5 menit baca' },
+  'artikel-16': { deskripsi: 'Langkah sederhana untuk tidur lebih nyenyak.', waktuBaca: '4 menit baca' },
 }
 
-const filters = ['Mental Health', 'Nutrition', 'Physical Activity', 'Medication', 'Sleep Hygiene']
+const filters = ['Kesehatan Mental', 'Nutrisi', 'Aktivitas Fisik', 'Pengobatan', 'Kebersihan Tidur']
 
 function imgForArticle(id: string) { return Math.min(parseInt(id.replace('artikel-', '')) - 1, IMAGES.feed.length - 1) }
 
 export default function ArtikelPage() {
   const [search, setSearch] = useState('')
-  const [activeFilter, setActiveFilter] = useState('Mental Health')
+  const [activeFilter, setActiveFilter] = useState('Kesehatan Mental')
   const navigate = useNavigate()
 
   const filtered = mockArtikelList.filter(a => {
@@ -60,7 +60,7 @@ export default function ArtikelPage() {
     <div className="min-h-screen bg-[#F7F9FC] pb-20">
       <div className="bg-[rgba(247,249,252,0.80)] backdrop-blur-[6px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] px-5 pt-3 pb-4">
         <div className="mb-4">
-          <h1 className="text-[#0059BB] text-2xl font-bold">Articles</h1>
+          <h1 className="text-[#0059BB] text-2xl font-bold">Artikel</h1>
         </div>
 
         <div className="flex gap-3 overflow-x-auto pb-3 -mx-5 px-5 mb-3">
@@ -82,7 +82,7 @@ export default function ArtikelPage() {
             <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
           <input type="text" value={search} onChange={e => setSearch(e.target.value)}
-            placeholder={`Search in ${activeFilter}...`} aria-label="Cari artikel"
+            placeholder={`Cari di ${activeFilter}...`} aria-label="Cari artikel"
             className="bg-transparent outline-none text-sm text-[#191C1E] placeholder:text-[#6B7280] w-full" />
         </div>
       </div>
@@ -102,7 +102,7 @@ export default function ArtikelPage() {
             <div className={`absolute inset-0 bg-gradient-to-br ${categoryGradients[activeFilter] || 'from-blue-400 to-indigo-500'}`} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
-              <span className="bg-[#008CFF] text-white text-xs font-medium px-3 py-1 rounded-full">FEATURED</span>
+              <span className="bg-[#008CFF] text-white text-xs font-medium px-3 py-1 rounded-full">UNGGULAN</span>
               <h3 className="text-white text-xl font-bold mt-3 leading-7">{featured.judul}</h3>
               {artikelExtra[featured.id] && (
                 <p className="text-white/80 text-sm mt-2 leading-6">{artikelExtra[featured.id].deskripsi}</p>
@@ -118,9 +118,9 @@ export default function ArtikelPage() {
         {cards.length > 0 && (
           <>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-base text-[#191C1E]">Recommended for You</h2>
+              <h2 className="text-base text-[#191C1E]">Rekomendasi untuk Anda</h2>
               <button className="flex items-center gap-1 text-[#0059BB] text-sm focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
-                View all
+                Lihat semua
                 <svg width="6" height="9" viewBox="0 0 6 9" fill="none" className="text-[#0059BB]"><path d="M1 1l4 3.5L1 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
               </button>
             </div>

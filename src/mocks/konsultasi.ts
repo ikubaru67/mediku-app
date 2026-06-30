@@ -29,15 +29,15 @@ export const mockPsikologList: Psikolog[] = [
   },
   {
     id: 'psi-3',
-    name: 'Dr. Maya Putri, M.Psi.',
-    spesialisasi: 'Psikolog Keluarga',
-    kategori: 'Psikolog',
+    name: 'dr. Maya Putri, S.Ked.',
+    spesialisasi: 'Dokter Umum',
+    kategori: 'Dokter Umum',
     foto: '',
     rating: 4.9,
     reviewCount: 156,
-    harga: 175000,
+    harga: 100000,
     isVerified: true,
-    about: 'Membantu pasangan dan keluarga mengatasi konflik serta membangun komunikasi yang sehat.',
+    about: 'Melayani konsultasi kesehatan umum, pemeriksaan fisik, diagnosis awal, dan penanganan berbagai keluhan kesehatan.',
     pengalaman: '12 tahun',
   },
   {
@@ -71,6 +71,6 @@ export const mockPsikologList: Psikolog[] = [
 export const mockUlasan: Record<string, Ulasan[]> = {
   'psi-1': [
     { id: 'ul-1', userId: 'u-1', userName: 'Budi', rating: 5, komentar: 'Sangat membantu! Dokternya ramah dan profesional.', tanggal: '1 Jun 2026' },
-    { id: 'ul-2', userId: 'u-2', userName: 'Siti', rating: 4, komentar: 'Sesi yg bermanfaat, recommended!', tanggal: '28 Mei 2026' },
+    { id: 'ul-2', userId: 'u-2', userName: 'Siti', rating: 4, komentar: 'Sesi yang bermanfaat, direkomendasikan!', tanggal: '28 Mei 2026' },
   ],
 }

@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const tabs = [
-  { path: '/home', label: 'Home', icon: 'home' },
+  { path: '/home', label: 'Beranda', icon: 'home' },
   { path: '/konsultasi', label: 'Konsultasi', icon: 'chat' },
   { path: '/rekam-medis', label: 'Rekam Medis', icon: 'file' },
   { path: '/artikel', label: 'Artikel', icon: 'article' },

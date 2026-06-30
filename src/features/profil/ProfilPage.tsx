@@ -24,9 +24,9 @@ export default function ProfilPage() {
   const goldar = saved.goldar || '-'
 
   const healthStats = [
-    { id: 'weight', icon: 'activity', label: 'Weight', value: `${berat} kg` },
-    { id: 'height', icon: 'activity', label: 'Height', value: `${tinggi} cm` },
-    { id: 'blood', icon: 'activity', label: 'Blood', value: goldar },
+    { id: 'weight', icon: 'activity', label: 'Berat Badan', value: `${berat} kg` },
+    { id: 'height', icon: 'activity', label: 'Tinggi Badan', value: `${tinggi} cm` },
+    { id: 'blood', icon: 'activity', label: 'Gol. Darah', value: goldar },
   ]
 
   return (
@@ -51,7 +51,7 @@ export default function ProfilPage() {
           <p className="text-[#414754] text-base mt-1">{user?.email || '-'}</p>
           <button onClick={() => navigate('/profil/edit')}
             className="mt-4 bg-[#0079FF] text-white text-sm font-semibold rounded-full px-6 py-3 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
-            Edit Profile
+            Edit Profil
           </button>
         </div>
       </div>

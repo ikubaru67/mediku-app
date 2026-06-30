@@ -92,7 +92,7 @@ export default function JadwalSayaPage() {
                     ) : (
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="text-[#414754] shrink-0"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" strokeWidth="2"/></svg>
                     )}
-                    <span className="text-[#414754] text-xs">{j.type === 'video' ? 'Video Call' : 'Chat'}</span>
+                    <span className="text-[#414754] text-xs">{j.type === 'video' ? 'Panggilan Video' : 'Chat'}</span>
                   </div>
                 </div>
 
@@ -101,7 +101,7 @@ export default function JadwalSayaPage() {
                   {(() => {
                     const dokterId = j.dokterId || mockPsikologList.find((p: any) => p.name.includes(j.dokter.split(',')[0]))?.id || 'psi-1'
                     return (
-                      <button onClick={() => navigate(j.type === 'chat' ? `/konsultasi/chat/${dokterId}` : `/konsultasi/video/${dokterId}`)}
+                      <button onClick={() => navigate(j.type === 'chat' ? `/konsultasi/chat/${dokterId}?booking=${j.id}` : `/konsultasi/video/${dokterId}?booking=${j.id}`)}
                         className="flex-1 bg-[#007AFF] text-white text-sm font-semibold rounded-full py-3.5 shadow-[0px_10px_30px_rgba(0,123,255,0.05)] active:scale-[0.97] transition-transform focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
                         Mulai Konsultasi
                       </button>
@@ -169,7 +169,7 @@ export default function JadwalSayaPage() {
                     ) : (
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="text-[#414754] shrink-0"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" strokeWidth="2"/></svg>
                     )}
-                    <span className="text-[#414754] text-xs">{j.type === 'video' ? 'Video Call' : 'Chat'}</span>
+                    <span className="text-[#414754] text-xs">{j.type === 'video' ? 'Panggilan Video' : 'Chat'}</span>
                   </div>
                 </div>
               </div>

@@ -76,7 +76,7 @@ export default function KonfirmasiPage() {
 
         {/* E-WALLET */}
         <div>
-          <p className="text-[#414754] text-sm font-normal uppercase tracking-[0.80px] mb-4">E-WALLET</p>
+          <p className="text-[#414754] text-sm font-normal uppercase tracking-[0.80px] mb-4">DOMPET ELEKTRONIK</p>
           <div className="space-y-3">
             {paymentMethods.ewallet.map(pm => {
               const active = selectedPayment === pm.id
@@ -100,7 +100,7 @@ export default function KonfirmasiPage() {
 
         {/* VIRTUAL ACCOUNT */}
         <div>
-          <p className="text-[#414754] text-sm font-normal uppercase tracking-[0.80px] mb-4">VIRTUAL ACCOUNT BANK</p>
+          <p className="text-[#414754] text-sm font-normal uppercase tracking-[0.80px] mb-4">REKENING VIRTUAL BANK</p>
           <div className="space-y-3">
             {paymentMethods.va.map(pm => (
               <button key={pm.id} onClick={() => setSelectedPayment(pm.id)}

@@ -115,7 +115,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <Button type="submit" fullWidth loading={loading} className="text-2xl font-bold py-4">Login</Button>
+            <Button type="submit" fullWidth loading={loading} className="text-2xl font-bold py-4">Masuk</Button>
           </form>
 
           <div className="flex items-center gap-3 my-6">
@@ -141,10 +141,10 @@ export default function LoginPage() {
       <footer className="px-6 pb-6 pt-4 text-center">
         <p className="text-[#717786] text-sm font-semibold mb-2">MediKu Health</p>
         <div className="flex justify-center gap-4 text-xs text-[#717786] mb-2">
-          <a href="#" className="hover:underline">Privacy Policy</a>
-          <a href="#" className="hover:underline">Terms of Service</a>
+          <a href="#" className="hover:underline">Kebijakan Privasi</a>
+          <a href="#" className="hover:underline">Syarat & Ketentuan</a>
         </div>
-        <p className="text-xs text-[#717786]">&copy; 2026 MediKu. All rights reserved.</p>
+        <p className="text-xs text-[#717786]">&copy; 2026 MediKu. Hak cipta dilindungi.</p>
       </footer>
 
       <SplashScreen show={showSplash} name={splashName} />

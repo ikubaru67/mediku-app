@@ -144,8 +144,8 @@ export default function KlinikPage() {
         </div>
         <div className="flex justify-center">
           <div className="flex bg-[#F2F4F7] rounded-full p-1">
-            <button className="rounded-full px-5 py-2 text-sm font-semibold bg-gradient-to-r from-[#0059BB] to-[#0070EA] text-white shadow-md">List</button>
-            <button onClick={() => navigate('/klinik/map')} className="rounded-full px-5 py-2 text-sm font-semibold text-[#717786]">Map</button>
+            <button className="rounded-full px-5 py-2 text-sm font-semibold bg-gradient-to-r from-[#0059BB] to-[#0070EA] text-white shadow-md">Daftar</button>
+            <button onClick={() => navigate('/klinik/map')} className="rounded-full px-5 py-2 text-sm font-semibold text-[#717786]">Peta</button>
           </div>
         </div>
       </div>

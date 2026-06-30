@@ -4,11 +4,12 @@ import { mockPsikologList } from '../../mocks/konsultasi'
 import ComingSoonPopup from '../../components/ComingSoonPopup'
 import { IMAGES } from '../../config/images'
 
-const filters = ['Semua', 'Psikolog', 'Psikiater']
+const filters = ['Semua', 'Psikolog', 'Psikiater', 'Dokter Umum']
 
 const kategoriColors: Record<string, string> = {
   Psikolog: 'bg-blue-100 text-[#0059BB]',
   Psikiater: 'bg-green-100 text-[#006D43]',
+  'Dokter Umum': 'bg-purple-100 text-[#7C3AED]',
 }
 
 export default function KonsultasiPage() {
@@ -28,7 +29,7 @@ export default function KonsultasiPage() {
     <div className="min-h-screen bg-[#F7F9FC] pb-24">
       <div className="bg-white rounded-b-3xl px-5 pt-4 pb-6 shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]">
         <div className="mb-4">
-          <h1 className="text-[#0059BB] text-2xl font-bold">Daftar Dokter</h1>
+          <h1 className="text-[#0059BB] text-2xl font-bold">Daftar Tenaga Kesehatan</h1>
         </div>
 
         <div className="flex items-center gap-3 bg-[#F2F4F7] rounded-full px-6 py-3 outline-1 outline-[#C1C6D7] mb-4">
@@ -67,22 +68,22 @@ export default function KonsultasiPage() {
                   <img src={foto} alt={'Foto ' + p.name} className="w-full h-full object-cover" />
                 ) : (
                   <div className={`w-full h-full flex items-center justify-center text-white font-bold text-sm ${
-                    p.kategori === 'Psikolog' ? 'bg-gradient-to-br from-[#0059BB] to-[#0070EA]' : 'bg-gradient-to-br from-[#006D43] to-[#31E193]'
+                    p.kategori === 'Psikolog' ? 'bg-gradient-to-br from-[#0059BB] to-[#0070EA]' : p.kategori === 'Dokter Umum' ? 'bg-gradient-to-br from-[#7C3AED] to-[#A78BFA]' : 'bg-gradient-to-br from-[#006D43] to-[#31E193]'
                   }`}>
                     {p.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()}
                   </div>
                 )}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <h3 className="text-[#191C1E] text-base font-normal truncate">{p.name}</h3>
+                <h3 className="text-[#191C1E] text-base font-normal truncate">{p.name}</h3>
+                <div className="flex items-center gap-2 mt-1">
                   {p.isVerified && (
                     <span className="text-[10px] font-bold text-[#007146] bg-[rgba(86,251,171,0.20)] px-2 py-0.5 rounded-full shrink-0 whitespace-nowrap">TERVERIFIKASI</span>
                   )}
+                  <span className={`inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full ${kategoriColors[p.kategori] || 'bg-gray-100 text-gray-500'}`}>
+                    {p.kategori}
+                  </span>
                 </div>
-                <span className={`inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full mt-1 ${kategoriColors[p.kategori] || 'bg-gray-100 text-gray-500'}`}>
-                  {p.kategori}
-                </span>
                 <div className="flex items-center gap-3 mt-2">
                   <div className="flex items-center gap-1">
                     <svg width="15" height="14.25" viewBox="0 0 24 24" fill="#EAB308"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>

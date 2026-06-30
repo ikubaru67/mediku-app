@@ -27,6 +27,14 @@ export default function HomePage() {
   const hour = new Date().getHours()
   const greeting = hour < 11 ? 'Selamat Pagi' : hour < 15 ? 'Selamat Siang' : hour < 18 ? 'Selamat Sore' : 'Selamat Malam'
 
+  const notifKey = `mediku_notifikasi_${auth.currentUser?.uid || 'temp'}`
+  const hasUnread = (() => {
+    try {
+      const data = JSON.parse(localStorage.getItem(notifKey) || '[]')
+      return Array.isArray(data) && data.some((n: any) => !n.dibaca)
+    } catch { return false }
+  })()
+
   const jadwal = (() => {
     try { 
       const data = JSON.parse(localStorage.getItem(`mediku_jadwal_${auth.currentUser?.uid || 'temp'}`) || '[]')
@@ -56,11 +64,13 @@ export default function HomePage() {
             </div>
           </button>
           <button onClick={() => navigate('/notifikasi')} aria-label="Notifikasi" className="relative w-[45.6px] h-[45.6px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
-            <svg width="18" height="22" viewBox="0 0 24 24" fill="none" className="text-[#0486F1]">
-              <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <svg width="20" height="22" viewBox="0 0 24 24" fill="none" className="text-[#0486F1]">
+              <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <div className="absolute top-[7.6px] right-[7.6px] w-[11.4px] h-[11.4px] bg-[#BA1A1A] rounded-full border-2 border-[#0059BB]" />
+            {hasUnread && (
+              <div className="absolute top-[7.6px] right-[7.6px] w-[11.4px] h-[11.4px] bg-[#BA1A1A] rounded-full border-2 border-[#0059BB]" />
+            )}
           </button>
         </div>
       </div>
@@ -79,13 +89,13 @@ export default function HomePage() {
                   <p className="text-white/80 text-xs">{jadwal.tanggal}</p>
                   <div className="flex items-center gap-1 text-white/90 text-sm font-semibold">
                     <svg width="12" height="10" viewBox="0 0 24 24" fill="none" className="text-white/90"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2"/><path d="M10 12l-2 2 4 4 6-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                    <span>{jadwal.type === 'video' ? 'Video Call' : 'Chat'} · {jadwal.waktu}</span>
+                    <span>{jadwal.type === 'video' ? 'Panggilan Video' : 'Chat'} · {jadwal.waktu}</span>
                   </div>
                 </>
               ) : (
                 <>
                   <p className="text-white text-base">Belum ada jadwal</p>
-                  <p className="text-white/80 text-xs">Pesan jadwal konsultasi sekarang</p>
+                  <p className="text-white text-xs">Pesan jadwal konsultasi sekarang</p>
                 </>
               )}
             </div>
@@ -97,7 +107,7 @@ export default function HomePage() {
 
         {/* Quick Actions */}
         <div>
-          <h2 className="text-[#191C1E] text-base mb-4">Akses Cepat</h2>
+          <h2 className="text-[#191C1E] text-base font-semibold mb-4">Akses Cepat</h2>
           <div className="grid grid-cols-4 gap-4">
             {quickActionsData.map((a) => (
               <button key={a.id} onClick={() => navigate(a.path)} className="flex flex-col items-center gap-1 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none rounded-lg">
@@ -113,25 +123,25 @@ export default function HomePage() {
         {/* Articles */}
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-[#191C1E] text-base">Artikel Untukmu</h2>
+            <h2 className="text-[#191C1E] text-base font-semibold">Artikel Untukmu</h2>
             <button onClick={() => navigate('/artikel')} className="text-[#0059BB] text-sm font-semibold focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">Lihat semua</button>
           </div>
-          <div className="space-y-4">
+          <div className="flex gap-4 overflow-x-auto pb-2 -mx-5 px-5 scrollbar-hide">
             {mockArtikelList.slice(0, 6).map((artikel, idx) => (
               <button key={artikel.id} onClick={() => navigate(`/artikel/${artikel.id}`)}
-                className="w-full bg-white rounded-[32px] overflow-hidden shadow-[0px_10px_30px_rgba(0,123,255,0.05)] text-left focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
-                <div className="h-36 bg-[#F2F4F7] overflow-hidden">
+                className="w-44 shrink-0 bg-white rounded-[24px] overflow-hidden shadow-[0px_10px_30px_rgba(0,123,255,0.05)] text-left focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
+                <div className="h-28 bg-[#F2F4F7] overflow-hidden">
                   <img src={IMAGES.feed[idx]} alt={artikel.judul} className="w-full h-full object-cover" />
                 </div>
-                <div className="p-4">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[#006D43] text-[10px] font-bold uppercase tracking-[0.80px]">{artikel.kategori}</span>
-                    <span className="text-[#717786] text-[10px]">• 5 min read</span>
+                <div className="p-3">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className="text-[#006D43] text-[9px] font-bold uppercase tracking-[0.80px]">{artikel.kategori}</span>
+                    <span className="text-[#717786] text-[9px]">• 5 menit baca</span>
                   </div>
-                  <h3 className="text-[#191C1E] text-sm font-semibold leading-snug line-clamp-2">{artikel.judul}</h3>
-                  <div className="flex items-center justify-between mt-3">
-                    <p className="text-[#717786] text-[10px]">{artikel.penulis}</p>
-                    <p className="text-[rgba(65,71,84,0.60)] text-[10px]">{artikel.tanggal}</p>
+                  <h3 className="text-[#191C1E] text-xs font-semibold leading-snug line-clamp-2">{artikel.judul}</h3>
+                  <div className="flex items-center justify-between mt-2">
+                    <p className="text-[#717786] text-[9px]">{artikel.penulis}</p>
+                    <p className="text-[rgba(65,71,84,0.60)] text-[9px]">{artikel.tanggal}</p>
                   </div>
                 </div>
               </button>

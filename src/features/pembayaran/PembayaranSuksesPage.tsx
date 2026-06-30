@@ -96,7 +96,7 @@ export default function PembayaranSuksesPage() {
   return (
     <div className="min-h-screen bg-[#F7F9FC] overflow-hidden">
       <div className="bg-[#F7F9FC] px-5 h-16 flex items-center justify-center">
-        <p className="text-[#0059BB] text-2xl font-bold">Confirmation</p>
+        <p className="text-[#0059BB] text-2xl font-bold">Konfirmasi</p>
       </div>
 
       <div className="flex flex-col items-center px-5">

@@ -4,7 +4,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-1',
     judul: 'Mengelola Stres di Era Digital: Strategi Keseimbangan Mental',
-    kategori: 'Mental Health',
+    kategori: 'Kesehatan Mental',
     thumbnail: '',
     penulis: 'Dr. Aulia Rahman, M.Psi.',
     tanggal: '24 Jan 2026',
@@ -18,53 +18,53 @@ export const mockArtikelList: Artikel[] = [
   },
   {
     id: 'artikel-2',
-    judul: 'The Science of Deep Breathing: Why It Works',
-    kategori: 'Mental Health',
+    judul: 'Ilmu di Balik Napas Dalam: Mengapa Teknik Ini Efektif',
+    kategori: 'Kesehatan Mental',
     thumbnail: '',
     penulis: 'Dr. Aulia Rahman, M.Psi.',
     tanggal: '10 Feb 2026',
-    konten: `<p>Deep breathing is one of the most effective yet simplest tools for managing stress and anxiety. But what actually happens in your body when you take a slow, deep breath?</p>
-<h2>The Physiology Behind the Breath</h2>
-<p>When you take a slow, deep breath, you activate the vagus nerve — a long nerve that runs from your brainstem to your abdomen. This activation triggers the parasympathetic nervous system, also known as the "rest and digest" system, which counteracts the fight-or-flight response.</p>
-<blockquote class="bg-[rgba(0,89,187,0.05)] border-l-4 border-[#0059BB] rounded-r-2xl px-6 py-6 italic text-[#414754] text-base leading-6 my-8">"Deep breathing is like an anchor in the midst of an emotional storm. It doesn't make the storm go away, but it keeps you steady until it passes."</blockquote>
-<h2>The 4-7-8 Technique</h2>
-<p>Developed by Dr. Andrew Weil, the 4-7-8 technique is simple: inhale through your nose for 4 seconds, hold your breath for 7 seconds, and exhale slowly through your mouth for 8 seconds. Repeat this cycle four times. This pattern helps regulate your heart rate and promotes relaxation.</p>
-<p>Research has shown that regular practice of deep breathing can lower blood pressure, reduce symptoms of anxiety and depression, improve sleep quality, and enhance overall emotional well-being.</p>`,
+    konten: `<p>Napas dalam adalah salah satu alat paling sederhana namun efektif untuk mengelola stres dan kecemasan. Tapi apa yang sebenarnya terjadi di dalam tubuh Anda saat mengambil napas dalam yang lambat?</p>
+<h2>Fisiologi di Balik Napas</h2>
+<p>Saat Anda menarik napas dalam secara perlahan, Anda mengaktifkan saraf vagus — saraf panjang yang membentang dari batang otak hingga perut. Aktivasi ini memicu sistem saraf parasimpatis, yang dikenal sebagai sistem "istirahat dan cerna", yang melawan respons lawan-atau-lari.</p>
+<blockquote class="bg-[rgba(0,89,187,0.05)] border-l-4 border-[#0059BB] rounded-r-2xl px-6 py-6 italic text-[#414754] text-base leading-6 my-8">"Napas dalam bagaikan jangkar di tengah badai emosi. Ia tidak membuat badai pergi, tapi ia membuat Anda tetap tegak sampai badai berlalu."</blockquote>
+<h2>Teknik 4-7-8</h2>
+<p>Dikembangkan oleh Dr. Andrew Weil, teknik 4-7-8 sangat sederhana: tarik napas melalui hidung selama 4 detik, tahan napas selama 7 detik, dan hembuskan perlahan melalui mulut selama 8 detik. Ulangi siklus ini empat kali. Pola ini membantu mengatur detak jantung dan mendorong relaksasi.</p>
+<p>Penelitian menunjukkan bahwa praktik napas dalam secara teratur dapat menurunkan tekanan darah, mengurangi gejala kecemasan dan depresi, meningkatkan kualitas tidur, dan meningkatkan kesejahteraan emosional secara keseluruhan.</p>`,
   },
   {
     id: 'artikel-3',
-    judul: 'Navigating Social Anxiety in the Hybrid Work Era',
-    kategori: 'Mental Health',
+    judul: 'Mengatasi Kecemasan Sosial di Era Kerja Hybrid',
+    kategori: 'Kesehatan Mental',
     thumbnail: '',
     penulis: 'Budi Kusuma, M.Psi',
     tanggal: '14 Mar 2026',
-    konten: `<p>The shift to hybrid work has created new challenges for those struggling with social anxiety. While working from home reduces some triggers, it introduces new ones — like video call anxiety, fear of missing out on office interactions, and the pressure to be constantly available on messaging platforms.</p>
-<h2>Understanding Social Anxiety in a Hybrid Context</h2>
-<p>Social anxiety in the workplace can manifest as fear of speaking in meetings, anxiety about being judged by colleagues, or avoidance of social gatherings. In a hybrid setting, this can be compounded by the ambiguity of digital communication — interpreting tone through text, worrying about response times, and feeling left out of informal conversations.</p>
-<blockquote class="bg-[rgba(0,89,187,0.05)] border-l-4 border-[#0059BB] rounded-r-2xl px-6 py-6 italic text-[#414754] text-base leading-6 my-8">"Anxiety is not a weakness. It's a signal that something needs attention. Listen to it, but don't let it make all the decisions." — Budi Kusuma</blockquote>
-<h2>Practical Strategies</h2>
-<p>Start by setting small, achievable goals: contribute one idea in your next team meeting, or schedule a brief coffee chat with a colleague. Gradually expand your comfort zone. Practice grounding techniques before important calls, and remember that most people are too focused on themselves to judge you harshly.</p>`,
+    konten: `<p>Pergeseran ke kerja hybrid telah menciptakan tantangan baru bagi mereka yang bergumul dengan kecemasan sosial. Meskipun bekerja dari rumah mengurangi beberapa pemicu, hal ini juga memperkenalkan yang baru — seperti kecemasan panggilan video, takut ketinggalan interaksi kantor, dan tekanan untuk selalu tersedia di platform pesan.</p>
+<h2>Memahami Kecemasan Sosial dalam Konteks Hybrid</h2>
+<p>Kecemasan sosial di tempat kerja dapat bermanifestasi sebagai ketakutan berbicara dalam rapat, cemas dinilai oleh rekan kerja, atau menghindari pertemuan sosial. Dalam lingkungan hybrid, hal ini dapat diperparah oleh ambiguitas komunikasi digital — menafsirkan nada melalui teks, khawatir tentang waktu respons, dan merasa ditinggalkan dari percakapan informal.</p>
+<blockquote class="bg-[rgba(0,89,187,0.05)] border-l-4 border-[#0059BB] rounded-r-2xl px-6 py-6 italic text-[#414754] text-base leading-6 my-8">"Kecemasan bukanlah kelemahan. Ini adalah sinyal bahwa ada sesuatu yang perlu diperhatikan. Dengarkan, tapi jangan biarkan ia membuat semua keputusan." — Budi Kusuma</blockquote>
+<h2>Strategi Praktis</h2>
+<p>Mulailah dengan menetapkan tujuan kecil yang dapat dicapai: berkontribusi satu ide dalam rapat tim berikutnya, atau jadwalkan obrolan kopi singkat dengan rekan kerja. Secara bertahap perluas zona nyaman Anda. Latih teknik grounding sebelum panggilan penting, dan ingatlah bahwa kebanyakan orang terlalu fokus pada diri mereka sendiri untuk menilai Anda dengan keras.</p>`,
   },
   {
     id: 'artikel-4',
-    judul: '10-Minute Morning Routine for Lasting Calm',
-    kategori: 'Mental Health',
+    judul: 'Rutinitas Pagi 10 Menit untuk Ketenangan Sehari Penuh',
+    kategori: 'Kesehatan Mental',
     thumbnail: '',
     penulis: 'Dr. Sarah Wijaya, Sp.KJ',
     tanggal: '28 Mar 2026',
-    konten: `<p>How you start your morning sets the tone for the entire day. A calm, intentional morning routine can significantly reduce stress and improve your mental clarity throughout the day. Here's a 10-minute routine designed by psychiatrists for lasting calm.</p>
-<h2>Minute 1-2: Gratitude Pause</h2>
-<p>Before you reach for your phone, take two minutes to think of three things you're grateful for. This simple practice shifts your brain's focus from what's lacking to what's abundant in your life, activating the prefrontal cortex and reducing cortisol levels.</p>
-<h2>Minute 3-5: Box Breathing</h2>
-<p>Sit up in bed and practice box breathing: inhale for 4 counts, hold for 4, exhale for 4, hold for 4. Repeat this cycle four times. This technique quickly calms the nervous system and prepares you for the day ahead.</p>
-<blockquote class="bg-[rgba(0,89,187,0.05)] border-l-4 border-[#0059BB] rounded-r-2xl px-6 py-6 italic text-[#414754] text-base leading-6 my-8">"The way we start our morning is a microcosm of how we live our lives. Choose calm over chaos, intention over reaction." — Dr. Sarah Wijaya</blockquote>
-<h2>Minute 6-10: Mindful Movement</h2>
-<p>Stand up and do gentle stretches while focusing on your breath. Reach your arms overhead, roll your shoulders, and gently twist your torso. This releases physical tension and improves blood flow to the brain.</p>`,
+    konten: `<p>Cara Anda memulai pagi menentukan suasana sepanjang hari. Rutinitas pagi yang tenang dan penuh kesadaran dapat secara signifikan mengurangi stres dan meningkatkan kejernihan mental Anda. Berikut rutinitas 10 menit yang dirancang oleh psikiater untuk ketenangan yang bertahan lama.</p>
+<h2>Menit 1-2: Jeda Syukur</h2>
+<p>Sebelum Anda meraih ponsel, luangkan dua menit untuk memikirkan tiga hal yang Anda syukuri. Praktik sederhana ini mengalihkan fokus otak dari apa yang kurang menjadi apa yang berlimpah dalam hidup Anda, mengaktifkan korteks prefrontal dan menurunkan kadar kortisol.</p>
+<h2>Menit 3-5: Pernapasan Kotak</h2>
+<p>Duduklah di tempat tidur dan praktikkan pernapasan kotak: tarik napas selama 4 hitungan, tahan 4 hitungan, hembuskan 4 hitungan, tahan 4 hitungan. Ulangi siklus ini empat kali. Teknik ini dengan cepat menenangkan sistem saraf dan mempersiapkan Anda untuk hari yang akan datang.</p>
+<blockquote class="bg-[rgba(0,89,187,0.05)] border-l-4 border-[#0059BB] rounded-r-2xl px-6 py-6 italic text-[#414754] text-base leading-6 my-8">"Cara kita memulai pagi adalah mikrokosmos dari cara kita menjalani hidup. Pilihlah ketenangan di atas kekacauan, niat di atas reaksi." — Dr. Sarah Wijaya</blockquote>
+<h2>Menit 6-10: Gerakan Penuh Kesadaran</h2>
+<p>Berdiri dan lakukan peregangan ringan sambil fokus pada napas Anda. Angkat tangan ke atas, putar bahu, dan putar tubuh Anda perlahan. Ini melepaskan ketegangan fisik dan meningkatkan aliran darah ke otak.</p>`,
   },
   {
     id: 'artikel-5',
     judul: 'Makanan Sehat untuk Kesehatan Mental Optimal',
-    kategori: 'Nutrition',
+    kategori: 'Nutrisi',
     thumbnail: '',
     penulis: 'Dr. Faisal Akbar',
     tanggal: '5 Apr 2026',
@@ -77,22 +77,22 @@ export const mockArtikelList: Artikel[] = [
   },
   {
     id: 'artikel-6',
-    judul: 'The Power of Nature on Mental Wellbeing',
-    kategori: 'Mental Health',
+    judul: 'Kekuatan Alam untuk Kesejahteraan Mental',
+    kategori: 'Kesehatan Mental',
     thumbnail: '',
     penulis: 'Lina Safitri, M.Psi',
     tanggal: '18 Apr 2026',
-    konten: `<p>There is something inherently healing about spending time in nature. The Japanese practice of shinrin-yoku, or "forest bathing," has been scientifically proven to reduce stress hormones, improve mood, and boost immune function. But you don't need a forest to experience these benefits.</p>
-<h2>The Science of Nature Therapy</h2>
-<p>Research shows that just 20 minutes in a natural setting — whether it's a park, garden, or tree-lined street — can significantly lower cortisol levels and improve cognitive function. The sights, sounds, and smells of nature engage our senses in a way that urban environments don't, promoting a state of mindful awareness that reduces rumination.</p>
-<blockquote class="bg-[rgba(0,89,187,0.05)] border-l-4 border-[#0059BB] rounded-r-2xl px-6 py-6 italic text-[#414754] text-base leading-6 my-8">"In every walk with nature, one receives far more than he seeks. The trees whisper secrets that our busy minds have forgotten how to hear."</blockquote>
-<h2>Making Nature a Daily Practice</h2>
-<p>Start small: eat your lunch outside, take a 10-minute walk after work, or keep a plant on your desk. Notice the details — the color of the sky, the texture of leaves, the sound of birds. This mindful connection with nature, even in small doses, can transform your mental wellbeing.</p>`,
+    konten: `<p>Ada sesuatu yang secara alami menyembuhkan dari menghabiskan waktu di alam. Praktik Jepang shinrin-yoku, atau "mandi hutan," telah terbukti secara ilmiah mengurangi hormon stres, meningkatkan suasana hati, dan meningkatkan fungsi kekebalan tubuh. Tapi Anda tidak perlu hutan untuk merasakan manfaat ini.</p>
+<h2>Ilmu di Balik Terapi Alam</h2>
+<p>Penelitian menunjukkan bahwa hanya 20 menit di lingkungan alami — baik itu taman, kebun, atau jalan yang dipenuhi pepohonan — dapat secara signifikan menurunkan kadar kortisol dan meningkatkan fungsi kognitif. Pemandangan, suara, dan aroma alam melibatkan indra kita dengan cara yang tidak bisa dilakukan lingkungan perkotaan, mendorong keadaan kesadaran penuh yang mengurangi perenungan berlebihan.</p>
+<blockquote class="bg-[rgba(0,89,187,0.05)] border-l-4 border-[#0059BB] rounded-r-2xl px-6 py-6 italic text-[#414754] text-base leading-6 my-8">"Dalam setiap jalan-jalan dengan alam, seseorang menerima jauh lebih banyak dari yang ia cari. Pepohonan membisikkan rahasia yang telah dilupakan oleh pikiran sibuk kita."</blockquote>
+<h2>Menjadikan Alam sebagai Praktik Harian</h2>
+<p>Mulailah dari yang kecil: makan siang di luar, jalan kaki 10 menit setelah bekerja, atau letakkan tanaman di meja Anda. Perhatikan detailnya — warna langit, tekstur daun, suara burung. Hubungan penuh kesadaran dengan alam ini, bahkan dalam dosis kecil, dapat mengubah kesejahteraan mental Anda.</p>`,
   },
   {
     id: 'artikel-7',
     judul: 'Superfoods untuk Otak: Apa yang Harus Dikonsumsi',
-    kategori: 'Nutrition',
+    kategori: 'Nutrisi',
     thumbnail: '',
     penulis: 'Dr. Faisal Akbar',
     tanggal: '2 Mei 2026',
@@ -107,7 +107,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-8',
     judul: 'Panduan Nutrisi untuk Penderita Depresi',
-    kategori: 'Nutrition',
+    kategori: 'Nutrisi',
     thumbnail: '',
     penulis: 'Lina Safitri, M.Psi',
     tanggal: '15 Mei 2026',
@@ -120,7 +120,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-9',
     judul: 'Olahraga Ringan untuk Kesehatan Mental',
-    kategori: 'Physical Activity',
+    kategori: 'Aktivitas Fisik',
     thumbnail: '',
     penulis: 'Dr. Aulia Rahman, M.Psi.',
     tanggal: '30 Mei 2026',
@@ -133,7 +133,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-10',
     judul: 'Yoga untuk Pemula: Manfaat dan Gerakan Dasar',
-    kategori: 'Physical Activity',
+    kategori: 'Aktivitas Fisik',
     thumbnail: '',
     penulis: 'Budi Kusuma, M.Psi',
     tanggal: '1 Feb 2026',
@@ -146,7 +146,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-11',
     judul: 'Jalan Kaki 30 Menit: Rahasia Bahagia Sehari-hari',
-    kategori: 'Physical Activity',
+    kategori: 'Aktivitas Fisik',
     thumbnail: '',
     penulis: 'Dr. Sarah Wijaya, Sp.KJ',
     tanggal: '14 Feb 2026',
@@ -158,7 +158,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-12',
     judul: 'Panduan Obat Antidepresan: Efek dan Manfaat',
-    kategori: 'Medication',
+    kategori: 'Pengobatan',
     thumbnail: '',
     penulis: 'Dr. Aulia Rahman, M.Psi.',
     tanggal: '28 Feb 2026',
@@ -171,7 +171,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-13',
     judul: 'Kapan Harus Minum Obat untuk Kesehatan Mental',
-    kategori: 'Medication',
+    kategori: 'Pengobatan',
     thumbnail: '',
     penulis: 'Dr. Faisal Akbar',
     tanggal: '12 Mar 2026',
@@ -184,7 +184,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-14',
     judul: 'Tips Tidur Berkualitas untuk Kesehatan Mental',
-    kategori: 'Sleep Hygiene',
+    kategori: 'Kebersihan Tidur',
     thumbnail: '',
     penulis: 'Dr. Sarah Wijaya, Sp.KJ',
     tanggal: '26 Mar 2026',
@@ -197,7 +197,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-15',
     judul: 'Hubungan antara Tidur dan Depresi',
-    kategori: 'Sleep Hygiene',
+    kategori: 'Kebersihan Tidur',
     thumbnail: '',
     penulis: 'Budi Kusuma, M.Psi',
     tanggal: '9 Apr 2026',
@@ -210,7 +210,7 @@ export const mockArtikelList: Artikel[] = [
   {
     id: 'artikel-16',
     judul: 'Rutinitas Malam Hari untuk Tidur Nyenyak',
-    kategori: 'Sleep Hygiene',
+    kategori: 'Kebersihan Tidur',
     thumbnail: '',
     penulis: 'Lina Safitri, M.Psi',
     tanggal: '22 Mei 2026',

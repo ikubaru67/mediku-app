@@ -23,6 +23,10 @@ import ArtikelPage from './features/artikel/ArtikelPage'
 import DetailArtikelPage from './features/artikel/DetailArtikelPage'
 import ProfilPage from './features/profil/ProfilPage'
 import EditProfilePage from './features/profil/EditProfilePage'
+import InformasiPribadiPage from './features/profil/InformasiPribadiPage'
+import HubungiKamiPage from './features/profil/HubungiKamiPage'
+import KebijakanPrivasiPage from './features/profil/KebijakanPrivasiPage'
+import FAQPage from './features/profil/FAQPage'
 import NotifikasiPage from './features/profil/NotifikasiPage'
 
 export default function App() {
@@ -48,6 +52,10 @@ export default function App() {
         <Route path="/pembayaran/sukses" element={<ProtectedRoute><PembayaranSuksesPage /></ProtectedRoute>} />
         <Route path="/artikel/:id" element={<ProtectedRoute><DetailArtikelPage /></ProtectedRoute>} />
         <Route path="/profil/edit" element={<ProtectedRoute><EditProfilePage /></ProtectedRoute>} />
+        <Route path="/profil/informasi-pribadi" element={<ProtectedRoute><InformasiPribadiPage /></ProtectedRoute>} />
+        <Route path="/profil/hubungi-kami" element={<ProtectedRoute><HubungiKamiPage /></ProtectedRoute>} />
+        <Route path="/profil/kebijakan-privasi" element={<ProtectedRoute><KebijakanPrivasiPage /></ProtectedRoute>} />
+        <Route path="/profil/faq" element={<ProtectedRoute><FAQPage /></ProtectedRoute>} />
         <Route path="/notifikasi" element={<ProtectedRoute><NotifikasiPage /></ProtectedRoute>} />
         <Route path="/klinik/map" element={<ProtectedRoute><MapsKlinikPage /></ProtectedRoute>} />
         <Route path="/konsultasi/:id" element={<ProtectedRoute><ProfilPsikologPage /></ProtectedRoute>} />

@@ -41,7 +41,7 @@ export const IMAGES = {
   doctorNameMap: {
     'Dr. Sarah Wijaya, M.Psi.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658211/Dr._Sarah_Wijaya_M.Psi._sjyvl3.webp',
     'Andi Pratama, M.Psi.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658200/Andi_Pratama_M.Psi._kx7ijb.webp',
-    'Dr. Maya Putri, M.Psi.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658210/Dr._Maya_Putri_M.Psi._alqikx.png',
+    'dr. Maya Putri, S.Ked.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658210/Dr._Maya_Putri_M.Psi._alqikx.png',
     'dr. Budi Santoso, Sp.KJ.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658206/dr._Budi_Santoso_Sp.KJ._fhae9a.jpg',
     'dr. Rina Fitriani, Sp.KJ.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658210/dr._Rina_Fitriani_Sp.KJ._ied3td.png',
     'Dr. Aulia Rahman, M.Psi.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658206/Dr._Aulia_Rahman_M.Psi_afsipa.png',
@@ -50,7 +50,7 @@ export const IMAGES = {
   videoBgMap: {
     'Andi Pratama, M.Psi.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658216/Videocall_Andi_Pratama_M.Psi._pzrgyn.png',
     'dr. Budi Santoso, Sp.KJ.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658219/Videocall_dr._Budi_Santoso_Sp.KJ._j8v3hd.png',
-    'Dr. Maya Putri, M.Psi.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658220/Videocall_Dr._Maya_Putri_M.Psi._w5zqgf.png',
+    'dr. Maya Putri, S.Ked.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658220/Videocall_Dr._Maya_Putri_M.Psi._w5zqgf.png',
     'dr. Rina Fitriani, Sp.KJ.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658218/Videocall_dr._Rina_Fitriani_Sp.KJ._ikwpeh.png',
     'Dr. Sarah Wijaya, M.Psi.': 'https://res.cloudinary.com/dhhcub4gd/image/upload/v1782658220/Videocall_Dr._Sarah_Wijaya_M.Psi._lukjra.png',
   },

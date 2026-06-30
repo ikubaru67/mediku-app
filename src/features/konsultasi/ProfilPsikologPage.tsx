@@ -5,6 +5,7 @@ import { IMAGES } from '../../config/images'
 const kategoriColors: Record<string, string> = {
   Psikolog: 'text-[#007146] bg-[rgba(86,251,171,0.30)]',
   Psikiater: 'text-[#0059BB] bg-[rgba(0,89,187,0.10)]',
+  'Dokter Umum': 'text-[#7C3AED] bg-[rgba(124,58,237,0.10)]',
 }
 
 export default function ProfilPsikologPage() {
@@ -89,7 +90,7 @@ export default function ProfilPsikologPage() {
             { icon: 'file', label: 'No. SIPP', value: '11442-2023-08-01' },
             { icon: 'shield', label: 'Status STR', value: 'Aktif s/d 2028' },
             { icon: 'building', label: 'Tempat Praktik', value: 'RS Medika Jakarta, Klinik Sehat Utama' },
-            { icon: 'globe', label: 'Bahasa', value: 'Bahasa Indonesia, English' },
+            { icon: 'globe', label: 'Bahasa', value: 'Bahasa Indonesia, Inggris' },
           ].map((item, idx) => (
             <div key={idx} className="bg-white rounded-[32px] p-6 shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline-1 outline-[rgba(193,198,215,0.20)] flex items-start gap-4">
               <div className="w-10 h-10 rounded-full bg-[#D8E2FF] flex items-center justify-center shrink-0">
@@ -152,7 +153,7 @@ export default function ProfilPsikologPage() {
           </button>
           <button onClick={() => navigate(`/jadwal/baru?id=${id}`)}
             className="flex-1 bg-white text-[#0059BB] rounded-full py-3.5 text-sm font-semibold border-2 border-[#0059BB] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
-            Book Sekarang
+            Pesan Sekarang
           </button>
         </div>
       </div>

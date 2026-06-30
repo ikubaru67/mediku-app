@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { auth } from '../../services/firebase'
 import { mockPsikologList } from '../../mocks/konsultasi'
 import { IMAGES } from '../../config/images'
@@ -18,9 +18,12 @@ const mockMessages: ChatMessage[] = [
 export default function ChatPage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const bookingId = searchParams.get('booking')
   const [messages, setMessages] = useState<ChatMessage[]>(mockMessages)
   const [input, setInput] = useState('')
-  const [showMenu, setShowMenu] = useState(false)
+  const [showConfirm, setShowConfirm] = useState(false)
+
   const bottomRef = useRef<HTMLDivElement>(null)
   const psikolog = mockPsikologList.find(p => p.id === id)
   const foto = psikolog ? (IMAGES.doctorNameMap as any)[psikolog.name] : ''
@@ -32,13 +35,12 @@ export default function ChatPage() {
     const key = `mediku_jadwal_${auth.currentUser?.uid || 'temp'}`
     const list = JSON.parse(localStorage.getItem(key) || '[]')
     const updated = Array.isArray(list) ? list.map((b: any) => {
-      if (b.dokterId === id || (b.dokter && psikolog && b.dokter.includes(psikolog.name.split(',')[0]))) {
+      if (bookingId ? b.id === bookingId : (b.dokterId === id || (b.dokter && psikolog && b.dokter.includes(psikolog.name.split(',')[0])))) {
         return { ...b, status: 'selesai' }
       }
       return b
     }) : []
     localStorage.setItem(key, JSON.stringify(updated))
-    setShowMenu(false)
     navigate('/jadwal')
   }
 
@@ -75,26 +77,36 @@ export default function ChatPage() {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-1 relative">
-          <button aria-label="Menu" className="p-2 focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
-            <svg width="20" height="16" viewBox="0 0 24 24" fill="none" className="text-[#414754]"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-          </button>
-          <button onClick={() => setShowMenu(!showMenu)} aria-label="Menu" className="p-2 relative focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
-            <svg width="4" height="16" viewBox="0 0 4 16" fill="none"><circle cx="2" cy="2" r="2" fill="#414754"/><circle cx="2" cy="8" r="2" fill="#414754"/><circle cx="2" cy="14" r="2" fill="#414754"/></svg>
-          </button>
-          {showMenu && (
-            <>
-              <div className="fixed inset-0 z-40" onClick={() => setShowMenu(false)} />
-              <div className="absolute right-0 top-full mt-1 bg-white rounded-2xl shadow-lg z-50 py-2 w-48 outline-1 outline-[rgba(193,198,215,0.30)]">
-                <button onClick={handleSelesai} className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#BA1A1A] font-medium focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#BA1A1A]"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/><path d="M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-                  Akhiri Konsultasi
-                </button>
-              </div>
-            </>
-          )}
-        </div>
+        <button onClick={() => setShowConfirm(true)}
+          className="flex items-center gap-2 bg-[#BA1A1A] text-white text-sm font-semibold rounded-full px-4 py-2 shrink-0 focus-visible:ring-2 focus-visible:ring-[#BA1A1A] focus-visible:outline-none">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          Akhiri Konsultasi
+        </button>
       </div>
+
+      {/* Confirm Modal */}
+      {showConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-6">
+          <div className="absolute inset-0 bg-black/30" onClick={() => setShowConfirm(false)} />
+          <div className="relative bg-white rounded-[32px] p-6 w-full max-w-sm shadow-xl text-center animate-pop-in">
+            <div className="w-14 h-14 rounded-full bg-[#FFDAD6] flex items-center justify-center mx-auto mb-4">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#BA1A1A]"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/><path d="M12 8v4M12 16h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+            </div>
+            <h2 className="text-[#191C1E] text-lg font-bold mb-2">Akhiri Konsultasi?</h2>
+            <p className="text-[#414754] text-sm mb-6">Apakah Anda yakin ingin mengakhiri sesi konsultasi dengan {psikolog?.name.split(',')[0] || 'dokter'}?</p>
+            <div className="flex gap-3">
+              <button onClick={() => setShowConfirm(false)}
+                className="flex-1 bg-white text-[#414754] text-sm font-semibold rounded-full py-3 border-2 border-[#C1C6D7] focus-visible:ring-2 focus-visible:ring-[#0059BB] focus-visible:outline-none">
+                Batal
+              </button>
+              <button onClick={() => { setShowConfirm(false); handleSelesai() }}
+                className="flex-1 bg-[#BA1A1A] text-white text-sm font-semibold rounded-full py-3 focus-visible:ring-2 focus-visible:ring-[#BA1A1A] focus-visible:outline-none">
+                Ya, Akhiri
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">

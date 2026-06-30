@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { auth } from '../../services/firebase'
 import { mockPsikologList } from '../../mocks/konsultasi'
 import { IMAGES } from '../../config/images'
@@ -7,6 +7,8 @@ import { IMAGES } from '../../config/images'
 export default function VideoCallPage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const bookingId = searchParams.get('booking')
   const [muted, setMuted] = useState(false)
   const [speaker, setSpeaker] = useState(true)
   const [camOn, setCamOn] = useState(true)
@@ -50,7 +52,7 @@ export default function VideoCallPage() {
     const key = `mediku_jadwal_${auth.currentUser?.uid || 'temp'}`
     const list = JSON.parse(localStorage.getItem(key) || '[]')
     const updated = Array.isArray(list) ? list.map((b: any) => {
-      if (b.dokterId === id || (b.dokter && psikolog && b.dokter.includes(psikolog.name.split(',')[0]))) {
+      if (bookingId ? b.id === bookingId : (b.dokterId === id || (b.dokter && psikolog && b.dokter.includes(psikolog.name.split(',')[0])))) {
         return { ...b, status: 'selesai' }
       }
       return b
@@ -72,7 +74,7 @@ export default function VideoCallPage() {
     <div className="min-h-screen bg-black relative flex flex-col overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0" aria-label={`Video call real-time dengan ${psikolog?.name || 'psikolog'}`}>
-          <img src={bg} alt="Video call background" className="w-full h-full object-cover" />
+          <img src={bg} alt="Latar panggilan video" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40" />
       </div>
 
@@ -113,7 +115,7 @@ export default function VideoCallPage() {
           )}
         </div>
         <div className="absolute bottom-2 left-2 px-2 py-1 rounded-[32px] bg-[rgba(0,0,0,0.40)] backdrop-blur-[6px]">
-          <span className="text-white text-[10px] font-medium uppercase tracking-[1px]">YOU</span>
+                          <span className="text-white text-[10px] font-medium uppercase tracking-[1px]">ANDA</span>
         </div>
       </div>
 
@@ -122,7 +124,7 @@ export default function VideoCallPage() {
         {/* Status */}
         <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-[rgba(255,255,255,0.15)] backdrop-blur-[12px] outline-1 outline-[rgba(255,255,255,0.20)]">
           <svg width="16" height="20" viewBox="0 0 24 24" fill="none" className="text-[#59FEAD]"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" strokeWidth="2"/><path d="M12 8v3l2 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-          <span className="text-white text-sm">{psikolog?.name.split(' ')[0] || 'Doctor'} can hear you clearly</span>
+          <span className="text-white text-sm">{psikolog?.name.split(' ')[0] || 'Dokter'} dapat mendengar Anda dengan jelas</span>
         </div>
 
         {/* Controls */}
