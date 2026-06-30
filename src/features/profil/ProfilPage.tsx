@@ -102,7 +102,7 @@ export default function ProfilPage() {
           </button>
         </div>
 
-        <p className="text-center text-[#717786] text-xs mt-6">MediKu App Version 0.5.0 (2026)</p>
+        <p className="text-center text-[#717786] text-xs mt-6">MediKu App Version 0.5.6 (2026)</p>
       </div>
 
       {comingSoon && <ComingSoonPopup feature={comingSoon} onClose={() => setComingSoon(null)} />}

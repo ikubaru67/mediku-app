@@ -7,6 +7,14 @@ const faqs = [
     a: 'MediKu adalah platform konsultasi kesehatan mental yang menghubungkan Anda dengan tenaga kesehatan profesional seperti psikolog, psikiater, dan dokter umum melalui layanan chat dan video call.',
   },
   {
+    q: 'Bagaimana cara konsultasi di MediKu?',
+    a: 'Pilih tenaga kesehatan di halaman Konsultasi, lalu tekan Pilih dan atur jadwal sesuai keinginan Anda. Setelah memilih tanggal dan waktu, lakukan pembayaran melalui metode yang tersedia. Setelah pembayaran berhasil, jadwal akan muncul di halaman Jadwal Saya. Pada waktu yang sudah dijadwalkan, tekan Mulai Konsultasi untuk memulai sesi chat atau video call dengan tenaga kesehatan.',
+  },
+  {
+    q: 'Bagaimana cara resep obat di sini?',
+    a: 'Resep obat hanya dapat diberikan oleh Psikiater setelah sesi konsultasi. Jika Psikiater meresepkan obat, resep akan dikirimkan melalui chat. Anda bisa membawa resep tersebut ke apotek terdekat untuk menebus obat yang diresepkan.',
+  },
+  {
     q: 'Apakah data kesehatan saya aman?',
     a: 'Ya, semua data pribadi dan kesehatan Anda dilindungi dengan enkripsi standar industri. Kami tidak akan membagikan data Anda tanpa persetujuan. Detail lebih lanjut dapat dilihat di halaman Kebijakan Privasi.',
   },
